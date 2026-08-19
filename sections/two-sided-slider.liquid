@@ -1,0 +1,866 @@
+{{ 'content-showcase.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% liquid
+  capture two_sided_slider_style
+    render 'spacing-style', settings: section.settings
+    render 'gap-style', value: section.settings.gap
+    echo '--content-showcase-columns: ' | append: section.settings.columns | append: ';'
+    echo '--content-showcase-mobile-columns: ' | append: section.settings.mobile_columns | append: ';'
+    echo '--content-showcase-tablet-columns: ' | append: section.settings.tablet_columns | append: ';'
+    echo '--content-showcase-column-gap: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--content-showcase-tablet-column-gap: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--content-showcase-mobile-column-gap: ' | append: section.settings.columns_gap_mobile | append: 'px;'
+    echo '--content-showcase-row-gap: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--content-showcase-tablet-row-gap: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--content-showcase-mobile-row-gap: ' | append: section.settings.columns_gap_mobile | append: 'px;'
+    echo '--content-showcase-mobile-card-size: ' | append: section.settings.mobile_card_size | append: ';'
+  endcapture
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    content-showcase
+    two-sided-slider
+    section--{{ section.settings.section_width }} section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+    gap-style
+  "
+  style="{{ two_sided_slider_style }}"
+  data-testid="two-sided-slider"
+>
+  <div class="custom-section-background">
+    {% render 'background-media',
+      background_media: section.settings.background_media,
+      background_video: section.settings.video,
+      background_video_position: section.settings.video_position,
+      background_image: section.settings.background_image,
+      background_image_position: section.settings.background_image_position
+    %}
+  </div>
+
+  <div
+    class="border-style custom-section-content"
+    style="{% render 'border-override', settings: section.settings %}"
+  >
+    {% if section.settings.toggle_overlay %}
+      {% render 'overlay', settings: section.settings, layer: '0' %}
+    {% endif %}
+
+    <div class="two-sided-slider__inner layout-{{ section.settings.layout_type }}">
+      {% content_for 'block', type: '_two-sided-slider-left', id: 'two-sided-slider-left' %}
+      {% content_for 'block', type: '_cards', id: 'two-sided-slider-right' %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .custom-section-background {
+    grid-column: 1 / -1;
+  }
+
+  .custom-section-content {
+    z-index: var(--layer-flat);
+  }
+
+  .two-sided-slider__inner {
+    display: grid;
+    gap: var(--gap);
+  }
+
+  .two-sided-slider__empty {
+    min-height: 160px;
+    display: grid;
+    place-items: center;
+    border: 1px dashed rgb(var(--color-foreground-rgb) / 0.3);
+    padding: 24px;
+  }
+
+  @media screen and (min-width: 990px) {
+    .two-sided-slider__inner {
+      grid-template-columns: minmax(300px, 400px) minmax(0, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Two-sided slider",
+  "class": "ui-test-two-sided-slider",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "grid",
+          "label": "t:options.grid"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "header",
+      "content": "Slider layout"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "tablet_columns",
+      "label": "Tablet columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "2",
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "Mobile card size",
+      "options": [
+        {
+          "value": "80cqw",
+          "label": "1"
+        },
+        {
+          "value": "44cqw",
+          "label": "2"
+        }
+      ],
+      "default": "80cqw"
+    },
+    {
+      "type": "select",
+      "id": "card_height",
+      "label": "Card height",
+      "options": [
+        {
+          "value": "top",
+          "label": "Fit content"
+        },
+        {
+          "value": "fill",
+          "label": "Fill height"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "info": "This is the default setting"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap_mobile",
+      "label": "Horizontal gap mobile",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "default": 0,
+      "info": "This is the default setting"
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.icons_style != 'none' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scrollbar",
+      "label": "Scroll bar",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+{
+  "type": "select",
+  "id": "section_width_mobile",
+  "label": "Mobile width",
+  "options": [
+    {
+      "value": "page-width",
+      "label": "Page"
+    },
+    {
+      "value": "full-width",
+      "label": "Full"
+    }
+  ],
+  "default": "page-width"
+},
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "label": "t:settings.background_media",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "image",
+          "label": "t:options.image"
+        },
+        {
+          "value": "video",
+          "label": "t:options.video"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:settings.video",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "t:settings.video_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:settings.image",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "t:settings.image_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "fit",
+          "label": "t:options.fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.borders",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.border_opacity",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "t:settings.background_overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:settings.overlay_color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "t:settings.overlay_style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        },
+        {
+          "value": "gradient",
+          "label": "t:options.gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "t:settings.gradient_direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "t:options.up"
+        },
+        {
+          "value": "to bottom",
+          "label": "t:options.down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ section.settings.toggle_overlay and section.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two-sided slider",
+      "category": "t:categories.storytelling",
+      "settings": {
+        "layout_type": "carousel",
+        "columns": 3,
+        "mobile_columns": "1",
+        "mobile_card_size": "80cqw",
+        "card_height": "fill",
+        "columns_gap": 20,
+        "columns_gap_mobile": 12,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "show_scrollbar": true,
+        "section_width": "page-width",
+        "gap": 40,
+        "color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      },
+      "blocks": {
+        "two-sided-slider-left": {
+          "type": "_two-sided-slider-left",
+          "static": true,
+          "settings": {
+            "gap": 12
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>Get 30% Off pallet Shipping</p>",
+                "width": "fit-content",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1rem",
+                "weight": "300",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "color": "var(--color-foreground-heading)",
+                "background": true,
+                "background_color": "rgba(0,0,0,0)",
+                "text_color": "#d23d00"
+              }
+            },
+            "heading": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h2>quality wood delivered <strong>Nationwide</strong></h2>",
+                "width": "fit-content",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "2.26rem",
+                "weight": "500",
+                "weight_active": "900",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "color": "var(--color-foreground-heading)"
+              }
+            },
+            "description": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>ButlerWood is a commercial cooking wood supplier serving restaurants, steakhouses, pitmasters, and food businesses across the country. We deliver premium wood for smoking, grilling, and wood-fired cooking, including post oak, hickory, mesquite, pecan, apple, and cherry.</p><p>More than 300 restaurants nationwide run their pits on our wood because every split lands the same way: consistent size, low moisture content, and a clean, steady burn. We cut and age our own wood in Texas and haul it on our own trucks, so the supply you count on never depends on a middleman. Choose a way to shop below.</p>",
+                "width": "fit-content",
+                "alignment": "left",
+                "type_preset": "rte",
+                "color": "var(--color-foreground)"
+              }
+            }
+          },
+          "block_order": ["eyebrow", "heading", "description"]
+        },
+        "two-sided-slider-right": {
+          "type": "_cards",
+          "static": true,
+          "settings": {
+            "border_radius": 8,
+            "card_border_position": "none"
+          },
+          "blocks": {
+            "card_1": {
+              "type": "_card",
+              "name": "t:names.card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "gap": 10,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-6",
+                "background_media": "none",
+                "toggle_overlay": true,
+                "overlay_color": "#00000063",
+                "overlay_style": "gradient",
+                "gradient_direction": "to top",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "heading": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h3>Out-of-State</h3>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "weight": "800",
+                    "line_height": "normal",
+                    "letter_spacing": "loose",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>More Than 10 Pallets</p>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "color": "var(--color-foreground)"
+                  }
+                },
+                "buttons": {
+                  "type": "buttons-group",
+                  "name": "Buttons group",
+                  "settings": {
+                    "section_top": 10,
+                    "padding-block-start": 10,
+                    "vertical_alignment": "flex-end",
+                    "horizontal_gap": 12,
+                    "vertical_gap": 12,
+                    "horizontal_gap_mobile": 12,
+                    "vertical_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "button": {
+                      "type": "button",
+                      "name": "t:names.button",
+                      "settings": {
+                        "label": "Learn More",
+                        "link": "shopify://collections/all",
+                        "style_class": "link",
+                        "width": "fit-content",
+                        "width_mobile": "fit-content"
+                      }
+                    }
+                  },
+                  "block_order": ["button"]
+                }
+              },
+              "block_order": ["heading", "text", "buttons"]
+            },
+            "card_2": {
+              "type": "_card",
+              "name": "t:names.card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "gap": 10,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-6",
+                "background_media": "none",
+                "toggle_overlay": true,
+                "overlay_color": "#00000063",
+                "overlay_style": "gradient",
+                "gradient_direction": "to top",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "heading": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h3>Out-of-State</h3>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "weight": "800",
+                    "line_height": "normal",
+                    "letter_spacing": "loose",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>More Than 10 Pallets</p>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "color": "var(--color-foreground)"
+                  }
+                },
+                "buttons": {
+                  "type": "buttons-group",
+                  "name": "Buttons group",
+                  "settings": {
+                    "section_top": 10,
+                    "padding-block-start": 10,
+                    "vertical_alignment": "flex-end",
+                    "horizontal_gap": 12,
+                    "vertical_gap": 12,
+                    "horizontal_gap_mobile": 12,
+                    "vertical_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "button": {
+                      "type": "button",
+                      "name": "t:names.button",
+                      "settings": {
+                        "label": "Learn More",
+                        "link": "shopify://collections/all",
+                        "style_class": "link",
+                        "width": "fit-content",
+                        "width_mobile": "fit-content"
+                      }
+                    }
+                  },
+                  "block_order": ["button"]
+                }
+              },
+              "block_order": ["heading", "text", "buttons"]
+            },
+            "card_3": {
+              "type": "_card",
+              "name": "t:names.card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-end",
+                "gap": 10,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-6",
+                "background_media": "none",
+                "toggle_overlay": true,
+                "overlay_color": "#00000063",
+                "overlay_style": "gradient",
+                "gradient_direction": "to top",
+                "padding-block-start": 12,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "heading": {
+                  "type": "text",
+                  "name": "t:names.heading",
+                  "settings": {
+                    "text": "<h3>Out-of-State</h3>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "custom",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "1.125rem",
+                    "weight": "800",
+                    "line_height": "normal",
+                    "letter_spacing": "loose",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "t:names.text",
+                  "settings": {
+                    "text": "<p>More Than 10 Pallets</p>",
+                    "width": "fit-content",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "color": "var(--color-foreground)"
+                  }
+                },
+                "buttons": {
+                  "type": "buttons-group",
+                  "name": "Buttons group",
+                  "settings": {
+                    "section_top": 10,
+                    "padding-block-start": 10,
+                    "vertical_alignment": "flex-end",
+                    "horizontal_gap": 12,
+                    "vertical_gap": 12,
+                    "horizontal_gap_mobile": 12,
+                    "vertical_gap_mobile": 12
+                  },
+                  "blocks": {
+                    "button": {
+                      "type": "button",
+                      "name": "t:names.button",
+                      "settings": {
+                        "label": "Learn More",
+                        "link": "shopify://collections/all",
+                        "style_class": "link",
+                        "width": "fit-content",
+                        "width_mobile": "fit-content"
+                      }
+                    }
+                  },
+                  "block_order": ["button"]
+                }
+              },
+              "block_order": ["heading", "text", "buttons"]
+            }
+          },
+          "block_order": ["card_1", "card_2", "card_3"]
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

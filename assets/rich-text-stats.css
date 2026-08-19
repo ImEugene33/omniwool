@@ -1,0 +1,120 @@
+.section--rich-text-stats {
+  position: relative;
+  overflow: hidden;
+}
+
+.section--rich-text-stats .section-content-wrapper.layout-panel-flex--row {
+  min-height: 250px;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 40px;
+}
+
+.section--rich-text-stats .text-block.rte:first-child {
+  flex: 1 0 0;
+  min-width: 240px;
+}
+
+.section--rich-text-stats .text-block.rte:first-child h2 {
+  margin: 0;
+  font-family: "Termina", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section--rich-text-stats .text-block.rte:first-child h2 a {
+  text-decoration: none;
+}
+
+.section--rich-text-stats .text-block.custom-typography {
+  width: fit-content;
+  color: #2c1f15;
+  font-family: "Termina", sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section--rich-text-stats .text-block.custom-typography p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: "Termina", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section--rich-text-stats .text-block.custom-typography strong {
+  font-family: "Termina", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: 0.2px;
+}
+
+.section--rich-text-stats .divider {
+  align-self: center;
+  width: 1px;
+  height: 44px;
+  min-width: 1px;
+  color: #fff;
+}
+
+.section--rich-text-stats .divider__line {
+  width: 1px;
+  height: 44px;
+  min-height: 44px;
+  flex-basis: auto;
+  border-right: 1px solid #d23d00;
+  border-bottom: 0;
+}
+.color-scheme-5  .divider__line{
+  border-right: 1px solid #fffaf2!important;
+}
+
+.section--rich-text-stats .rich-text-stats__corner-image {
+  position: absolute;
+  top: 0px;
+  right: -13px;
+  width: 122px;
+  height: 121px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+@media screen and (max-width: 1199px) {
+  .section--rich-text-stats .section-content-wrapper.layout-panel-flex--row {
+    min-height: auto;
+    gap: 18px;
+    align-items: flex-start;
+    padding-inline: 0px;
+    flex-direction: column;
+  }
+
+  .section--rich-text-stats .text-block.rte:first-child h2 {
+    font-size: 30px;
+    line-height: 34px;
+    white-space: normal;
+  }
+
+  .section--rich-text-stats .divider {
+    display: none;
+  }
+
+  .section--rich-text-stats .rich-text-stats__corner-image {
+    width: 84px;
+    height: 84px;
+  }
+}

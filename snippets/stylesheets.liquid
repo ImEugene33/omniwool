@@ -1,0 +1,5 @@
+{{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
+{{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+{{ 'breadcrumbs.css' | asset_url | stylesheet_tag }}
+{{ 'collection-product-card.css' | asset_url | stylesheet_tag }}
+{{ 'collection-list-card.css' | asset_url | stylesheet_tag }}

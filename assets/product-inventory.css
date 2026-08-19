@@ -1,0 +1,70 @@
+.product-inventory {
+  display: block;
+  width: fit-content;
+}
+
+.product-inventory__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 99px;
+  background: rgba(122, 177, 108, 0.20);
+}
+
+.product-inventory__icon {
+  display: block;
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 99px;
+  background: #073209;
+  box-sizing: border-box;
+}
+
+.product-inventory__icon svg {
+  display: none;
+}
+
+.product-inventory__icon-low {
+  border-color: rgb(255 198 87 / 51%);
+  background: var(--color-lowstock);
+}
+
+.product-inventory__icon-out_of_stock {
+  border-color: rgb(210 61 0 / 35%);
+  background: var(--color-outofstock);
+}
+
+.product-inventory__text {
+  color: #073209;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.product-inventory__icon-low + .product-inventory__text {
+  color: var(--color-lowstock);
+}
+
+.product-inventory__icon-out_of_stock + .product-inventory__text {
+  color: var(--color-outofstock);
+}
+
+.jdgm-preview-badge .jdgm-star{
+  width: 16px!important;
+  height: 16px!important;
+  aspect-ratio: 1/1!important;
+  color: #D23D00!important;
+}
+.jdgm-prev-badge__text{
+  color: #5C5A50;
+  font-family: "Lato",sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

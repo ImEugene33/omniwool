@@ -1,0 +1,308 @@
+{{ 'split-media-slider.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% liquid
+  assign show_arrows = false
+  if section.settings.show_arrow and section.blocks.size > 1
+    assign show_arrows = true
+  endif
+
+  assign autoplay = false
+  if section.blocks.size > 1 and section.settings.autoplay
+    assign autoplay = true
+  endif
+
+  assign background_image_url = ''
+  if section.settings.background_image != blank
+    assign background_image_url = section.settings.background_image | image_url: width: 1600
+  endif
+%}
+
+{% capture slides %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% capture controls %}
+  {% if show_arrows %}
+    <div class="split-media-slider__arrows">
+      <button
+        class="slideshow-control slideshow-control--previous button button-unstyled button-unstyled--transparent"
+        on:click="/previous"
+        ref="previous"
+      >
+        <svg viewBox="0 0 39 54"><path  d="M26.293 11.293 10.586 27l15.707 15.707a1 1 0 0 0 1.414 0 1 1 0 0 0 0-1.414L13.414 27l14.293-14.293a1 1 0 0 0 0-1.414 1 1 0 0 0-1.414 0" /></svg>
+      </button>
+
+      <button
+        class=" slideshow-control slideshow-control--previous button button-unstyled button-unstyled--transparent"
+        on:click="/next"
+        ref="next"
+      >
+        <svg viewBox="0 0 39 54"><path d="M12 11a1 1 0 0 0-.707.293 1 1 0 0 0 0 1.414l6 6L25.586 27 11.293 41.293a1 1 0 0 0 0 1.414 1 1 0 0 0 1.414 0L28.414 27l-9.707-9.707-6-6A1 1 0 0 0 12 11"/></svg>
+      </button>
+    </div>
+  {% endif %}
+{% endcapture %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+{% style %}
+  .split-media-slider.section--{{ section.settings.section_width }} {
+    margin-top: {{ section.settings.padding-block-start | divided_by: 2 }}px;
+    margin-bottom: {{ section.settings.padding-block-end | divided_by: 2 }}px;
+  }
+  @media (min-width: 1024px) {
+      .split-media-slider.section--{{ section.settings.section_width }} {
+        margin-top: {{ section.settings.padding-block-start }}px;
+        margin-bottom: {{ section.settings.padding-block-end }}px;
+      }
+  }
+{% endstyle %}
+
+<div
+  class="
+    section
+    section-page-width
+    split-media-slider
+    media-position-{{ section.settings.media_position }}
+    section--{{ section.settings.section_width }} section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+  "
+  style="
+    --split-media-bg-opacity: {{ section.settings.background_image_opacity | divided_by: 100.0 }};
+    {% if background_image_url != blank %}
+      --split-media-bg-image: url('{{ background_image_url }}');
+    {% endif %}
+  "
+  data-testid="split-media-slider"
+>
+  {% if section.settings.signature != blank %}
+    <h2 class="split-media-slider__signature">{{ section.settings.signature }}</h2>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    {% render 'slideshow',
+      class: 'split-media-slider__slideshow',
+      section: section,
+      slides: slides,
+      controls: controls,
+      show_arrows: false,
+      autoplay: autoplay,
+      autoplay_speed: section.settings.autoplay_speed,
+      infinite: section.settings.loop,
+      initial_slide: 0,
+      slide_count: section.blocks.size,
+      slide_position: 'stretch',
+      transition_mode: 'fade'
+    %}
+  {% elsif request.design_mode %}
+    <div class="split-media-slider__empty">
+      Add split media slides in the theme editor.
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Slideshow section",
+  "class": "ui-test-split-media-slider",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "_split-media-slide"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Media position",
+      "default": "right",
+      "options": [
+        {
+          "value": "left",
+          "label": "Media left"
+        },
+        {
+          "value": "right",
+          "label": "Media right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "signature",
+      "label": "Signature",
+      "default": "From Field to Pit."
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "background_image_opacity",
+      "label": "Background image opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 19
+    },
+    {
+      "type": "header",
+      "content": "Slider settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Show control arrow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate slides",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Speed",
+      "min": 3,
+      "max": 7,
+      "step": 1,
+      "unit": "s",
+      "default": 4,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "full-width"
+    },
+{
+  "type": "select",
+  "id": "section_width_mobile",
+  "label": "Mobile width",
+  "options": [
+    {
+      "value": "page-width",
+      "label": "Page"
+    },
+    {
+      "value": "full-width",
+      "label": "Full"
+    }
+  ],
+  "default": "full-width"
+},
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slideshow section",
+      "category": "Custom",
+      "blocks": {
+        "slide_land": {
+          "type": "_split-media-slide",
+ 
+          "blocks": {
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Central Texas land-clearing yields the trees we cut.</p>",
+                "type_preset": "rte",
+                "width": "fill"
+              }
+            }
+          },
+          "block_order": ["description"]
+        },
+        "slide_cut": {
+          "type": "_split-media-slide",
+          "blocks": {
+            "description": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Each piece is prepared for steady, clean-burning smoke.</p>",
+                "type_preset": "rte",
+                "width": "fill"
+              }
+            }
+          },
+          "block_order": ["description"]
+        }
+      },
+      "block_order": ["slide_land", "slide_cut"],
+      "settings": {
+        "signature": "From Field to Pit.",
+        "background_image_opacity": 19,
+        "show_arrow": true,
+        "autoplay": false,
+        "section_width": "full-width",
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,3698 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "group_text_znqUbF": {
+          "type": "group-text",
+          "name": "Text group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 20
+          },
+          "blocks": {
+            "text_P8wyLA": {
+              "type": "text",
+              "name": "t:names.heading",
+              "settings": {
+                "text": "<h1>States Serviced</h1>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
+                "weight": "800",
+                "weight_active": "inherit",
+                "line_height": "tight",
+                "letter_spacing": "tight",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            },
+            "text_kjzL9K": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>ButlerWood provides premium smoking wood and BBQ cooking wood across the United States. From backyard grills to professional smokers, our wood products are recognized for reliable delivery and exceptional performance. Explore the states we serve and the customers who trust us.</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "weight": "",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_P8wyLA",
+            "text_kjzL9K"
+          ]
+        }
+      },
+      "block_order": [
+        "group_text_znqUbF"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "cards_grid_Did9t6": {
+      "type": "cards-grid",
+      "blocks": {
+        "cards_grid_item_qh9b6b": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/alabama"
+          },
+          "blocks": {
+            "image_B8ymRJ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/mobile-1611874_1920_9d83a927-f320-40bc-8956-d56a02049993.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_cB8YjY": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Alabama</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_B8ymRJ",
+            "text_cB8YjY"
+          ]
+        },
+        "cards_grid_item_MDqYa6": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/arizona"
+          },
+          "blocks": {
+            "image_PYeD4c": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/monument-valley-5499156_1920_76a62274-8f68-4f2c-bc7a-166d0088ecc8.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_DL4LrM": {
+              "type": "text",
+              "settings": {
+                "text": "<p>arizona</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_PYeD4c",
+            "text_DL4LrM"
+          ]
+        },
+        "cards_grid_item_YXGA8h": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/arkansas"
+          },
+          "blocks": {
+            "image_htTMXW": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/arkansas-143701_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_FA3Rkt": {
+              "type": "text",
+              "settings": {
+                "text": "<p>arkansas</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_htTMXW",
+            "text_FA3Rkt"
+          ]
+        },
+        "cards_grid_item_k8C3jM": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/california"
+          },
+          "blocks": {
+            "image_FtzfbX": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/golden-gate-bridge-4271360_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_YaxgDW": {
+              "type": "text",
+              "settings": {
+                "text": "<p>california</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_FtzfbX",
+            "text_YaxgDW"
+          ]
+        },
+        "cards_grid_item_VFRJHY": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/colorado"
+          },
+          "blocks": {
+            "image_7Fxwn8": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/colorado-5156229_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_WetQQh": {
+              "type": "text",
+              "settings": {
+                "text": "<p>colorado</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_7Fxwn8",
+            "text_WetQQh"
+          ]
+        },
+        "cards_grid_item_W8hRX7": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/connecticut"
+          },
+          "blocks": {
+            "image_YYytay": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/connecticut-187786_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_YPitKW": {
+              "type": "text",
+              "settings": {
+                "text": "<p>connecticut</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_YYytay",
+            "text_YPitKW"
+          ]
+        },
+        "cards_grid_item_APt9Da": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/delaware"
+          },
+          "blocks": {
+            "image_ikkbyJ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/newark-248044_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_PtCwGX": {
+              "type": "text",
+              "settings": {
+                "text": "<p>delaware</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_ikkbyJ",
+            "text_PtCwGX"
+          ]
+        },
+        "cards_grid_item_YH4RDQ": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/florida"
+          },
+          "blocks": {
+            "image_DgDBTW": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/miami-3915622_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_yNmE4Y": {
+              "type": "text",
+              "settings": {
+                "text": "<p>florida</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_DgDBTW",
+            "text_yNmE4Y"
+          ]
+        },
+        "cards_grid_item_xEQVQA": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/georgia"
+          },
+          "blocks": {
+            "image_CbKVJd": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/atlanta-4704400_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_kryaGA": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Georgia</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_CbKVJd",
+            "text_kryaGA"
+          ]
+        },
+        "cards_grid_item_rLDLBA": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/idaho"
+          },
+          "blocks": {
+            "image_eYGNGM": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/idaho-1602027_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_DRGYVC": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Idaho</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_eYGNGM",
+            "text_DRGYVC"
+          ]
+        },
+        "cards_grid_item_i4U7Wf": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/illinois"
+          },
+          "blocks": {
+            "image_hD7p36": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/chicago-55112_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_MDcVGY": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Illinois</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_hD7p36",
+            "text_MDcVGY"
+          ]
+        },
+        "cards_grid_item_hnktAE": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/indiana"
+          },
+          "blocks": {
+            "image_WcWQAg": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/indianapolis-1872528_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_QmDrjb": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Indiana</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_WcWQAg",
+            "text_QmDrjb"
+          ]
+        },
+        "cards_grid_item_6YeVYE": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/iowa"
+          },
+          "blocks": {
+            "image_kXW9BK": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/iowa-1731560_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_WReGdT": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Iowa</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_kXW9BK",
+            "text_WReGdT"
+          ]
+        },
+        "cards_grid_item_VrHH7T": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/kansas"
+          },
+          "blocks": {
+            "image_E7Pmej": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/kansas-city-1380036_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_8wJfhE": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Kansas</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_E7Pmej",
+            "text_8wJfhE"
+          ]
+        },
+        "cards_grid_item_3zWwJK": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/kentucky"
+          },
+          "blocks": {
+            "image_3zkBH7": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/theatre-2703064_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_URGFtW": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Kentucky</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_3zkBH7",
+            "text_URGFtW"
+          ]
+        },
+        "cards_grid_item_HYnAcK": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/louisiana"
+          },
+          "blocks": {
+            "image_PKMCqA": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/boat-has-dawn-3557134_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_AJKn6z": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Louisiana</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_PKMCqA",
+            "text_AJKn6z"
+          ]
+        },
+        "cards_grid_item_77b33M": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/maine"
+          },
+          "blocks": {
+            "image_L8MMkn": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/maine-551993_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_9EdQrw": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Maine</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_L8MMkn",
+            "text_9EdQrw"
+          ]
+        },
+        "cards_grid_item_EbqLyc": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/maryland"
+          },
+          "blocks": {
+            "image_HyhThD": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/baltimore-4027194_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_gYqjxB": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Maryland</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_HyhThD",
+            "text_gYqjxB"
+          ]
+        },
+        "cards_grid_item_gMxML4": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/massachusetts"
+          },
+          "blocks": {
+            "image_yVjMrK": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/massachusetts-84002_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_hPAHc8": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Massachusetts</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_yVjMrK",
+            "text_hPAHc8"
+          ]
+        },
+        "cards_grid_item_rPxj9r": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/michigan"
+          },
+          "blocks": {
+            "image_WTJVnR": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/mackinac-bridge-1642445_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_zHGqPU": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Michigan</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_WTJVnR",
+            "text_zHGqPU"
+          ]
+        },
+        "cards_grid_item_rjhNRL": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/minnesota"
+          },
+          "blocks": {
+            "image_zKVNNc": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/st-paul-868421_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_7NwYQk": {
+              "type": "text",
+              "settings": {
+                "text": "<p>minnesota</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_zKVNNc",
+            "text_7NwYQk"
+          ]
+        },
+        "cards_grid_item_qCKXJG": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/mississippi"
+          },
+          "blocks": {
+            "image_YrLBHi": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/mississippi-river-4696011_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_YrCfDN": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Mississippi</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_YrLBHi",
+            "text_YrCfDN"
+          ]
+        },
+        "cards_grid_item_YeyzpW": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/missouri"
+          },
+          "blocks": {
+            "image_cyn7EP": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/st-louis-996718_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_dFjaxH": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Missouri</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_cyn7EP",
+            "text_dFjaxH"
+          ]
+        },
+        "cards_grid_item_bq8UTf": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/montana"
+          },
+          "blocks": {
+            "image_7ftNRq": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/garnet-ghost-town-montana-3943047_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_kQJWUW": {
+              "type": "text",
+              "settings": {
+                "text": "<p>montana</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_7ftNRq",
+            "text_kQJWUW"
+          ]
+        },
+        "cards_grid_item_pAajMf": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/nebraska"
+          },
+          "blocks": {
+            "image_Ta7Chi": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/lincoln-1624100_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_TDzKdc": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Nebraska</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_Ta7Chi",
+            "text_TDzKdc"
+          ]
+        },
+        "cards_grid_item_9AgPbn": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/nevada"
+          },
+          "blocks": {
+            "image_wdEwMd": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/las-vegas-225597_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_tMfK8m": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Nevada</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_wdEwMd",
+            "text_tMfK8m"
+          ]
+        },
+        "cards_grid_item_zmJFca": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/new-hampshire"
+          },
+          "blocks": {
+            "image_DxLJBe": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/new-hampshire-4015511_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_wWtVmC": {
+              "type": "text",
+              "settings": {
+                "text": "<p>New Hampshire</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_DxLJBe",
+            "text_wWtVmC"
+          ]
+        },
+        "cards_grid_item_KYGqiU": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/new-jersey"
+          },
+          "blocks": {
+            "image_fw7G3w": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/jersey-city-3994051_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_KC4KRG": {
+              "type": "text",
+              "settings": {
+                "text": "<p>New Jersey</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_fw7G3w",
+            "text_KC4KRG"
+          ]
+        },
+        "cards_grid_item_WGVRxT": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/new-jersey"
+          },
+          "blocks": {
+            "image_6kynkg": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/shiprock-210543_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_98eae6": {
+              "type": "text",
+              "settings": {
+                "text": "<p>New Mexico</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_6kynkg",
+            "text_98eae6"
+          ]
+        },
+        "cards_grid_item_yCEQWA": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/new-york"
+          },
+          "blocks": {
+            "image_RfjqpQ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/outdoors-5129182_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_467Jhy": {
+              "type": "text",
+              "settings": {
+                "text": "<p>New York</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_RfjqpQ",
+            "text_467Jhy"
+          ]
+        },
+        "cards_grid_item_Tw7LVk": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/north-carolina"
+          },
+          "blocks": {
+            "image_F6QFhB": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/north-carolina-1872517_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_QhadKN": {
+              "type": "text",
+              "settings": {
+                "text": "<p>North Carolina</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_F6QFhB",
+            "text_QhadKN"
+          ]
+        },
+        "cards_grid_item_83cmBK": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/north-dakota"
+          },
+          "blocks": {
+            "image_HFPpEB": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/wheat-862919_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_GCUUhX": {
+              "type": "text",
+              "settings": {
+                "text": "<p>North Dakota</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_HFPpEB",
+            "text_GCUUhX"
+          ]
+        },
+        "cards_grid_item_qzqTRp": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/ohio"
+          },
+          "blocks": {
+            "image_eBPLK3": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/cleveland-454067_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_UAH6Nf": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Ohio</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_eBPLK3",
+            "text_UAH6Nf"
+          ]
+        },
+        "cards_grid_item_zx7gQR": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/oklahoma"
+          },
+          "blocks": {
+            "image_JV6rr7": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/capital-1907537_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_cCi96r": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Oklahoma</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_JV6rr7",
+            "text_cCi96r"
+          ]
+        },
+        "cards_grid_item_gawpeE": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/oregon"
+          },
+          "blocks": {
+            "image_MxFPzj": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/oregon-1885675_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_nPXzVP": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Oregon</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_MxFPzj",
+            "text_nPXzVP"
+          ]
+        },
+        "cards_grid_item_re3bTX": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/pennsylvania"
+          },
+          "blocks": {
+            "image_HpDHtQ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/philadelphia-4643451_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_JH3F9M": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Pennsylvania</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_HpDHtQ",
+            "text_JH3F9M"
+          ]
+        },
+        "cards_grid_item_xE7Jpj": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/rhode-island"
+          },
+          "blocks": {
+            "image_CzeDX9": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/bay-7365341_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_j8NwEJ": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Rhode Island</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_CzeDX9",
+            "text_j8NwEJ"
+          ]
+        },
+        "cards_grid_item_qHPKeF": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/south-carolina"
+          },
+          "blocks": {
+            "image_aPQFUa": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/south-carolina-173583_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_BFfFfi": {
+              "type": "text",
+              "settings": {
+                "text": "<p>South Carolina</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_aPQFUa",
+            "text_BFfFfi"
+          ]
+        },
+        "cards_grid_item_XDnyUa": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/south-dakota"
+          },
+          "blocks": {
+            "image_jHLckm": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/deadwood-210363_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_XU8Uf6": {
+              "type": "text",
+              "settings": {
+                "text": "<p>South Dakota</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_jHLckm",
+            "text_XU8Uf6"
+          ]
+        },
+        "cards_grid_item_pMEbKh": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/tennessee"
+          },
+          "blocks": {
+            "image_iLi4zH": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/tower-1916828_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_GHEeJV": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Tennessee</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_iLi4zH",
+            "text_GHEeJV"
+          ]
+        },
+        "cards_grid_item_mpY7PN": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/texas"
+          },
+          "blocks": {
+            "image_rrnjfw": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/austin-texas-1756159_1920_33ae93c2-4dbf-487a-9c21-f118e656de44.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_taGYNn": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Texas</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_rrnjfw",
+            "text_taGYNn"
+          ]
+        },
+        "cards_grid_item_rLGCyh": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/utah"
+          },
+          "blocks": {
+            "image_ttWKd4": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/sandstones-53637_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_iAQcwM": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Utah</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_ttWKd4",
+            "text_iAQcwM"
+          ]
+        },
+        "cards_grid_item_TNWcGH": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/vermont"
+          },
+          "blocks": {
+            "image_3DceXi": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/vermont-8984562_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_WARNR3": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Vermont</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_3DceXi",
+            "text_WARNR3"
+          ]
+        },
+        "cards_grid_item_zUKRYn": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/virginia"
+          },
+          "blocks": {
+            "image_pFFW9a": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/virginia-868661_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_9aVEQP": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Virginia</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_pFFW9a",
+            "text_9aVEQP"
+          ]
+        },
+        "cards_grid_item_hnHUXD": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/washington"
+          },
+          "blocks": {
+            "image_cBaEFJ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/seattle-8027337_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_rGX9Jh": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Washington</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_cBaEFJ",
+            "text_rGX9Jh"
+          ]
+        },
+        "cards_grid_item_pXcXMt": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/west-virginia"
+          },
+          "blocks": {
+            "image_A6Rkp6": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/street-13553_640.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_GVJTBP": {
+              "type": "text",
+              "settings": {
+                "text": "<p>West Virginia</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_A6Rkp6",
+            "text_GVJTBP"
+          ]
+        },
+        "cards_grid_item_aEejqq": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/wisconsin"
+          },
+          "blocks": {
+            "image_LLP3wB": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/madison-1809576_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_xw7jgy": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Wisconsin</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_LLP3wB",
+            "text_xw7jgy"
+          ]
+        },
+        "cards_grid_item_D38z4M": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/wyoming"
+          },
+          "blocks": {
+            "image_qTzezJ": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/landscape-2788695_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_bAfEtz": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Wyoming</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_qTzezJ",
+            "text_bAfEtz"
+          ]
+        },
+        "cards_grid_item_cgrPaN": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/washington-d-c"
+          },
+          "blocks": {
+            "image_gjFDy6": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/washington-monument-1627184_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_jr67iy": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Washington D.C.</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_gjFDy6",
+            "text_jr67iy"
+          ]
+        },
+        "cards_grid_item_mVmPxB": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/hawaii"
+          },
+          "blocks": {
+            "image_CiQEGx": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/napali-coast-91676_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_VXRHkj": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Hawaii</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_CiQEGx",
+            "text_VXRHkj"
+          ]
+        },
+        "cards_grid_item_9CQ38L": {
+          "type": "cards-grid-item",
+          "settings": {
+            "link": "shopify://pages/alaska"
+          },
+          "blocks": {
+            "image_d7X6Uf": {
+              "type": "image",
+              "settings": {
+                "image": "shopify://shop_images/alaska-5177041_1920.jpg",
+                "link": "",
+                "image_ratio": "landscape",
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_tAiiGH": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Alaska</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.375rem",
+                "weight": "700",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "image_d7X6Uf",
+            "text_tAiiGH"
+          ]
+        }
+      },
+      "block_order": [
+        "cards_grid_item_qh9b6b",
+        "cards_grid_item_MDqYa6",
+        "cards_grid_item_YXGA8h",
+        "cards_grid_item_k8C3jM",
+        "cards_grid_item_VFRJHY",
+        "cards_grid_item_W8hRX7",
+        "cards_grid_item_APt9Da",
+        "cards_grid_item_YH4RDQ",
+        "cards_grid_item_xEQVQA",
+        "cards_grid_item_rLDLBA",
+        "cards_grid_item_i4U7Wf",
+        "cards_grid_item_hnktAE",
+        "cards_grid_item_6YeVYE",
+        "cards_grid_item_VrHH7T",
+        "cards_grid_item_3zWwJK",
+        "cards_grid_item_HYnAcK",
+        "cards_grid_item_77b33M",
+        "cards_grid_item_EbqLyc",
+        "cards_grid_item_gMxML4",
+        "cards_grid_item_rPxj9r",
+        "cards_grid_item_rjhNRL",
+        "cards_grid_item_qCKXJG",
+        "cards_grid_item_YeyzpW",
+        "cards_grid_item_bq8UTf",
+        "cards_grid_item_pAajMf",
+        "cards_grid_item_9AgPbn",
+        "cards_grid_item_zmJFca",
+        "cards_grid_item_KYGqiU",
+        "cards_grid_item_WGVRxT",
+        "cards_grid_item_yCEQWA",
+        "cards_grid_item_Tw7LVk",
+        "cards_grid_item_83cmBK",
+        "cards_grid_item_qzqTRp",
+        "cards_grid_item_zx7gQR",
+        "cards_grid_item_gawpeE",
+        "cards_grid_item_re3bTX",
+        "cards_grid_item_xE7Jpj",
+        "cards_grid_item_qHPKeF",
+        "cards_grid_item_XDnyUa",
+        "cards_grid_item_pMEbKh",
+        "cards_grid_item_mpY7PN",
+        "cards_grid_item_rLGCyh",
+        "cards_grid_item_TNWcGH",
+        "cards_grid_item_zUKRYn",
+        "cards_grid_item_hnHUXD",
+        "cards_grid_item_pXcXMt",
+        "cards_grid_item_aEejqq",
+        "cards_grid_item_D38z4M",
+        "cards_grid_item_cgrPaN",
+        "cards_grid_item_mVmPxB",
+        "cards_grid_item_9CQ38L"
+      ],
+      "name": "Cards grid",
+      "settings": {
+        "columns_desktop": 4,
+        "columns_tablet": 3,
+        "columns_mobile": 2,
+        "column_gap_desktop": 24,
+        "row_gap_desktop": 40,
+        "column_gap_adaptive": 24,
+        "row_gap_adaptive": 40,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "section_qEYk68": {
+      "type": "section",
+      "blocks": {
+        "text_hdq8en": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Frequently asked questions</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h3",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "weight": "",
+            "weight_active": "inherit",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "text_color": "#000000",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {}
+        },
+        "accordion_3R9FU9": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "plus",
+            "container_size": "small",
+            "show_borders": false,
+            "use_product_faq_metafield": true,
+            "row_color_scheme": "scheme-2",
+            "open_row_color_scheme": "scheme-5",
+            "row_border_radius": 4,
+            "row_gap": 20,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_hdq8en",
+        "accordion_3R9FU9"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "faq_layout": "default",
+        "faq_row_gap": 0,
+        "faq_column_gap": 56,
+        "faq_side_width": 40,
+        "faq_image_height": 420,
+        "faq_image_fit": "cover",
+        "faq_image_position": "center",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cards_grid_Did9t6",
+    "section_qEYk68"
+  ]
+}

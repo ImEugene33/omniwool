@@ -1,0 +1,402 @@
+{{ 'media-grid.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign block_settings = block.settings
+  assign content_cards = page.metafields.custom.content_card.value
+  assign has_content_cards = false
+
+  if content_cards != blank
+    assign has_content_cards = true
+  endif
+%}
+
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+<div
+  class="media-grid-block media-grid-block--layout-{{ block_settings.layout }} spacing-style size-style{% if block_settings.show_cta %} media-grid-block--has-cta{% endif %}"
+  style="
+    {% render 'size-style', settings: block_settings %}
+    {% render 'spacing-style', settings: block_settings %}
+    --media-grid-gap: {{ block_settings.gap }}px;
+  "
+  {{ block.shopify_attributes }}
+>
+  <div class="media-grid__items">
+    {% if has_content_cards %}
+      {% for content_card in content_cards %}
+        {% liquid
+          assign card_image = content_card.image.value
+          assign card_title = content_card.title.value
+          assign card_content = content_card.content
+          assign card_link = content_card.link_url.value
+          assign card_link_label = content_card.link_label.value
+        %}
+
+        <article class="media-grid-card">
+          {% if card_image != blank %}
+            {{
+              card_image
+              | image_url: width: 1600
+              | image_tag:
+                class: 'media-grid-card__image',
+                widths: '360, 540, 720, 960, 1200, 1600',
+                sizes: '(min-width: 990px) 50vw, 100vw',
+                loading: 'lazy'
+            }}
+          {% else %}
+            <div class="media-grid-card__placeholder">
+              {{ 'hero-apparel-1' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+
+          <div class="media-grid-card__content">
+            <div class="media-grid-card__copy">
+              {% if card_title != blank %}
+                <h3 class="media-grid-card__title">{{ card_title | escape }}</h3>
+              {% endif %}
+
+              {% if card_content != blank %}
+                <div class="media-grid-card__text rte">
+                  {{ card_content | metafield_tag }}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if card_link_label != blank and card_link != blank %}
+              <a class="media-grid-card__link" href="{{ card_link | escape }}">
+                {{ card_link_label | escape }}
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    {% else %}
+      {{ children }}
+    {% endif %}
+
+    {% if block_settings.layout == 'collections' and block_settings.show_collection_text_block %}
+      <div class="media-grid-text-card color-{{ block_settings.collection_text_color_scheme }}">
+        {% if block_settings.collection_text != blank %}
+          <div class="media-grid-text-card__heading">
+            {{ block_settings.collection_text }}
+          </div>
+        {% endif %}
+
+        {% if block_settings.collection_button_label != blank %}
+          {% if block_settings.collection_button_link != blank %}
+            <a class="media-grid-text-card__button" href="{{ block_settings.collection_button_link | escape }}">
+              {{ block_settings.collection_button_label | escape }}
+            </a>
+          {% else %}
+            <span class="media-grid-text-card__button">
+              {{ block_settings.collection_button_label | escape }}
+            </span>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if block_settings.show_cta %}
+    <div class="media-grid-cta">
+      {% if block_settings.cta_text != blank %}
+        <p class="media-grid-cta__text">{{ block_settings.cta_text | escape }}</p>
+      {% endif %}
+
+      {% if block_settings.cta_label != blank %}
+        {% if block_settings.cta_link != blank %}
+          <a class="media-grid-cta__button" href="{{ block_settings.cta_link | escape }}">
+            {{ block_settings.cta_label | escape }}
+          </a>
+        {% else %}
+          <span class="media-grid-cta__button">
+            {{ block_settings.cta_label | escape }}
+          </span>
+        {% endif %}
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Media grid",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_media-grid-card"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "3",
+          "label": "3 items"
+        },
+        {
+          "value": "4",
+          "label": "4 items"
+        },
+        {
+          "value": "bento",
+          "label": "Bento"
+        },
+        {
+          "value": "collections",
+          "label": "Collections"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Text",
+      "default": "Not seeing what you need?",
+      "visible_if": "{{ block.settings.show_cta }}"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button label",
+      "default": "Let us know",
+      "visible_if": "{{ block.settings.show_cta }}"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link",
+      "visible_if": "{{ block.settings.show_cta }}"
+    },
+    {
+      "type": "header",
+      "content": "Collections text block"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_text_block",
+      "label": "Show text block",
+      "default": true,
+      "visible_if": "{{ block.settings.layout == 'collections' }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "collection_text_color_scheme",
+      "label": "Background color scheme",
+      "default": "scheme-2",
+      "visible_if": "{{ block.settings.layout == 'collections' and block.settings.show_collection_text_block }}"
+    },
+    {
+      "type": "richtext",
+      "id": "collection_text",
+      "label": "Text",
+      "default": "<p>Can’t Find what you’re looking for?</p>",
+      "visible_if": "{{ block.settings.layout == 'collections' and block.settings.show_collection_text_block }}"
+    },
+    {
+      "type": "text",
+      "id": "collection_button_label",
+      "label": "Button label",
+      "default": "Get in touch",
+      "visible_if": "{{ block.settings.layout == 'collections' and block.settings.show_collection_text_block }}"
+    },
+    {
+      "type": "url",
+      "id": "collection_button_link",
+      "label": "Button link",
+      "visible_if": "{{ block.settings.layout == 'collections' and block.settings.show_collection_text_block }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.size"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "width_mobile",
+      "label": "t:settings.width_mobile",
+      "options": [
+        {
+          "value": "fit-content",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "custom_width_mobile",
+      "label": "t:settings.custom_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.width_mobile == 'custom' }}"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "t:settings.height",
+      "options": [
+        {
+          "value": "fit",
+          "label": "t:options.fit_content"
+        },
+        {
+          "value": "fill",
+          "label": "t:options.fill"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": "fit"
+    },
+    {
+      "type": "range",
+      "id": "custom_height",
+      "label": "t:settings.custom_height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "default": 100,
+      "visible_if": "{{ block.settings.height == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media grid",
+      "blocks": [
+        {
+          "type": "_media-grid-card"
+        },
+        {
+          "type": "_media-grid-card"
+        },
+        {
+          "type": "_media-grid-card"
+        },
+        {
+          "type": "_media-grid-card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

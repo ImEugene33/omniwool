@@ -1,0 +1,1066 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_Lhttt4": {
+      "type": "section",
+      "blocks": {
+        "text_TwmzeT": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h1><strong>LOCATIONS</strong></h1>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-heading--family)",
+            "font_size": "6.75rem",
+            "weight": "400",
+            "weight_active": "800",
+            "line_height": "tight",
+            "letter_spacing": "normal",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "text_color": "#000000",
+            "active_color": "#d23d00",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 20,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {}
+        },
+        "image_ajcnFc": {
+          "type": "image",
+          "name": "t:names.image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_09970.jpg",
+            "link": "",
+            "image_ratio": "landscape",
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 12,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_TwmzeT",
+        "image_ajcnFc"
+      ],
+      "name": "Hero section",
+      "settings": {
+        "content_direction": "column",
+        "custom_style": true,
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "faq_layout": "none",
+        "faq_row_gap": 0,
+        "faq_column_gap": 56,
+        "faq_side_width": 40,
+        "faq_image_height": 420,
+        "faq_image_fit": "cover",
+        "faq_image_position": "center",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
+    },
+    "locations_MHRhdg": {
+      "type": "locations",
+      "blocks": {
+        "group_text_hchQFm": {
+          "type": "group-text",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_4nL3Ep": {
+              "type": "text",
+              "settings": {
+                "text": "<p>ButlerWood</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
+                "weight": "600",
+                "weight_active": "600",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "balance",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "active_color": "#d23d00",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            },
+            "text_RdwcYR": {
+              "type": "text",
+              "settings": {
+                "text": "<p>ButlerWood is located in the heart of Texas, allowing us to source the best wood from the best regions. <strong>Come visit us </strong>at one of our two yards.</p>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.25rem",
+                "weight": "300",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": true,
+                "background_color": "rgba(0,0,0,0)",
+                "text_color": "#000000",
+                "active_color": "#d23d00",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_4nL3Ep",
+            "text_RdwcYR"
+          ]
+        },
+        "location_grid_jiWJAN": {
+          "type": "_location-grid",
+          "name": "Location grid",
+          "settings": {
+            "columns_desktop": 2,
+            "columns_tablet": 2,
+            "columns_mobile": 1,
+            "gap_desktop": 60,
+            "gap_adaptive": 20,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "location_item_6eiEkp": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.8882927857835!2d-97.7856216!3d29.5196151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865ccad4b1d6f611%3A0x648264626a0a0683!2s12527%20Capote%20Rd%2C%20Seguin%2C%20TX%2078155%2C%20USA!5e0!3m2!1sen!2sua!4v1783645575663!5m2!1sen!2sua\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Seguin Yard",
+                "link_label": "Get directions",
+                "link": "https://www.google.com/maps/place/12527+Capote+Rd,+Seguin,+TX+78155,+USA/@29.5196151,-97.7856216,17z/data=!3m1!4b1!4m6!3m5!1s0x865ccad4b1d6f611:0x648264626a0a0683!8m2!3d29.5196151!4d-97.7856216!16s%2Fg%2F11trr6jhzh?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D"
+              },
+              "blocks": {
+                "icon_7mdey9": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "clock",
+                    "width": 26,
+                    "label": "<p>Mon - Fri: 7 am - 5 pm <br/>Sat: 9 am - 12 pm</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_jMQdxE": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>12527 Capote Rd<br/>Seguin, TX 78155</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_pQjNGA": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(512) 797-6106\" title=\"tel:(512) 797-6106\">(512) 797-6106</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_7mdey9",
+                "icon_jMQdxE",
+                "icon_pQjNGA"
+              ]
+            },
+            "location_item_yP6qwa": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.4922952781244!2d-97.45974!3d29.5311545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86433e3562ad4a1d%3A0xbaf68156ff321f62!2s820%20Oil%20Patch%20Ln%2C%20Gonzales%2C%20TX%2078629%2C%20USA!5e0!3m2!1sen!2sua!4v1783648113270!5m2!1sen!2sua\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Gonzales Yard",
+                "link_label": "Get directions",
+                "link": "https://maps.app.goo.gl/vavhu7V7Cvmc389GA"
+              },
+              "blocks": {
+                "icon_8pNraj": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "clock",
+                    "width": 26,
+                    "label": "<p>Mon - Fri: 7 am - 5 pm <br/>Sat: 9 am - 12 pm</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_TxCaJn": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>820 Oil Patch Ln<br/>Gonzales, TX 78629</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_BVPnVp": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(512) 797-6106\" title=\"tel:(512) 797-6106\">(512) 797-6106</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_8pNraj",
+                "icon_TxCaJn",
+                "icon_BVPnVp"
+              ]
+            }
+          },
+          "block_order": [
+            "location_item_6eiEkp",
+            "location_item_yP6qwa"
+          ]
+        }
+      },
+      "block_order": [
+        "group_text_hchQFm",
+        "location_grid_jiWJAN"
+      ],
+      "name": "Locations",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 36,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 40
+      }
+    },
+    "locations_hFTcyY": {
+      "type": "locations",
+      "blocks": {
+        "group_text_pQ3Mfb": {
+          "type": "group-text",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text_EwHhYk": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Vendor Locations</p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
+                "weight": "600",
+                "weight_active": "600",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "balance",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "active_color": "#d23d00",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            },
+            "text_wUJr7y": {
+              "type": "text",
+              "settings": {
+                "text": "<p>We partner with trusted vendors to bring our premium cooking wood products closer to you. <strong>Check out locations near you</strong> and experience the difference ButlerWood makes.</p>",
+                "width": "100%",
+                "max_width": "narrow",
+                "alignment": "center",
+                "type_preset": "rte",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.25rem",
+                "weight": "300",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": true,
+                "background_color": "rgba(0,0,0,0)",
+                "text_color": "#000000",
+                "active_color": "#d23d00",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "text_EwHhYk",
+            "text_wUJr7y"
+          ]
+        },
+        "location_grid_cpjpNC": {
+          "type": "_location-grid",
+          "name": "Location grid",
+          "settings": {
+            "columns_desktop": 2,
+            "columns_tablet": 2,
+            "columns_mobile": 1,
+            "gap_desktop": 60,
+            "gap_adaptive": 20,
+            "padding-block-start": 0,
+            "padding-block-end": 40,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 40,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "location_item_hPT9a9": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2650.3554115760817!2d-114.26429502371604!3d48.37290853474889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5366423b8512ec37%3A0x5c2ebbdb27b3b491!2s4457%20Trumble%20Creek%20Rd%2C%20Columbia%20Falls%2C%20MT%2059912%2C%20USA!5e0!3m2!1sen!2spl!4v1784116085393!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Roddie Inc.",
+                "link_label": "Learn More",
+                "link": "https://www.butlerwood.com/pages/firewood-columbia-falls-montana"
+              },
+              "blocks": {
+                "icon_P9dwFn": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>4457 Trumble Creek Rd<br/>Columbia Falls, MT 59912</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_JQctqr": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p>(888) 406-3821</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_P9dwFn",
+                "icon_JQctqr"
+              ]
+            },
+            "location_item_BHrd8U": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2770.85107636585!2d-94.34380212384035!3d46.01416469657666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52b42458e52b8271%3A0xbb14abcc967b1298!2s17502%20Heron%20Rd%2C%20Little%20Falls%2C%20MN%2056345%2C%20USA!5e0!3m2!1sen!2spl!4v1784116117128!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "PAULS FIREWOOD",
+                "link_label": "Learn More",
+                "link": "https://www.butlerwood.com/pages/firewood-little-falls-mn"
+              },
+              "blocks": {
+                "icon_Q7keNm": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>17502 Heron Rd<br/>Little Falls, MN 56345</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_b3AfbU": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(320) 632-3352\" title=\"tel:(320) 632-3352\">(320) 632-3352</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_Q7keNm",
+                "icon_b3AfbU"
+              ]
+            },
+            "location_item_HLb4Bw": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.2825589609165!2d-80.14006162465336!3d26.22000698951595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d90255e0f69f77%3A0xc598c036b23b98e4!2s945%20SW%208th%20St%2C%20Pompano%20Beach%2C%20FL%2033069%2C%20USA!5e0!3m2!1sen!2spl!4v1784116150093!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Fred Stevens Firewood",
+                "link_label": "Learn More",
+                "link": "shopify://pages/firewood-pompano-beach-fl"
+              },
+              "blocks": {
+                "icon_CVx7qV": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>945 SW 8th St<br/>Pompano Beach, FL 33069</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_GCXA96": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(954) 783-9771\" title=\"tel:(954) 783-9771\">(954) 783-9771</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_CVx7qV",
+                "icon_GCXA96"
+              ]
+            },
+            "location_item_zEyMNK": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.7068695433263!2d-98.50237622454755!3d29.55402974164013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c6030d9112acd%3A0x3694dfc51b458490!2s435%20W%20Nakoma%20Dr%2C%20San%20Antonio%2C%20TX%2078216%2C%20USA!5e0!3m2!1sen!2spl!4v1784116184627!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Jeff's Backyard",
+                "link_label": "Learn More",
+                "link": "shopify://pages/firewood-san-antonio-tx"
+              },
+              "blocks": {
+                "icon_xUTeGa": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>435 W Nakoma Dr ste. 104<br/>San Antonio, TX 78216</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_7bYg3F": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(210) 342-4760\" title=\"tel:(210) 342-4760\">(210) 342-4760</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_xUTeGa",
+                "icon_7bYg3F"
+              ]
+            },
+            "location_item_bwj8Jq": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.2103688122534!2d-97.96741662454706!3d29.568481840964914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865cb8194b6d8027%3A0x598923a21e3df9ed!2s108%20S%20Austin%20St%2C%20Seguin%2C%20TX%2078155%2C%20USA!5e0!3m2!1sen!2spl!4v1784116219645!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Burnt Bean Co.",
+                "link_label": "Learn More",
+                "link": "shopify://pages/firewood-seguin-tx"
+              },
+              "blocks": {
+                "icon_mgeUJ7": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>108 S Austin St<br/>Seguin, TX 78155</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_mgeUJ7"
+              ]
+            },
+            "location_item_3YkKkF": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.460064595179!2d-96.07641162452865!3d30.10964621547873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8646b53109079e49%3A0x6ef57f3b4a4efc47!2sThe%20Barbque%20Store!5e0!3m2!1sen!2spl!4v1784116245410!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "The BBQ Store",
+                "link_label": "Learn More",
+                "link": "shopify://pages/firewood-hempstead-texas"
+              },
+              "blocks": {
+                "icon_ctwHTn": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>850 HWY 290 N<br/>Hempstead, TX 77445</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_HQx7cC": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(979) 826-2274\" title=\"tel:(979) 826-2274\">(979) 826-2274</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_ctwHTn",
+                "icon_HQx7cC"
+              ]
+            },
+            "location_item_pr4hW3": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3472.765682954187!2d-95.08334362454957!3d29.494033244439454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864082c7f5c036d9%3A0x37c98036114305d8!2s1340%20State%20Hwy%203%2C%20League%20City%2C%20TX%2077573%2C%20USA!5e0!3m2!1sen!2spl!4v1784116277576!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Royalty Meat Co.",
+                "link_label": "Learn More",
+                "link": "shopify://pages/league-city-texas"
+              },
+              "blocks": {
+                "icon_FHbXPJ": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>1340 HWY 3 S<br/>League City, TX 77573</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_F3hPnM": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(281) 908-2232\" title=\"tel:(281) 908-2232\">(281) 908-2232</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_FHbXPJ",
+                "icon_F3hPnM"
+              ]
+            },
+            "location_item_Et93Kt": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.3566055893443!2d-111.92479532408069!3d41.126740612122276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x875306c40391666f%3A0x8b040613888cc6f!2s2194%20E%20View%20Dr%2C%20South%20Weber%2C%20UT%2084405%2C%20USA!5e0!3m2!1sen!2spl!4v1784116324925!5m2!1sen!2spl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Hyer and Hearth LLC",
+                "link_label": "Learn More",
+                "link": "shopify://pages/laredo-texas"
+              },
+              "blocks": {
+                "icon_EgxFGb": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>2194 E View Dr<br/>South Weber, UT 84405</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_U8XCgA": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:(801) 721-7876\" title=\"tel:(801) 721-7876\">(801) 721-7876</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "icon_EgxFGb",
+                "icon_U8XCgA"
+              ]
+            }
+          },
+          "block_order": [
+            "location_item_hPT9a9",
+            "location_item_BHrd8U",
+            "location_item_HLb4Bw",
+            "location_item_zEyMNK",
+            "location_item_bwj8Jq",
+            "location_item_3YkKkF",
+            "location_item_pr4hW3",
+            "location_item_Et93Kt"
+          ]
+        }
+      },
+      "block_order": [
+        "group_text_pQ3Mfb",
+        "location_grid_cpjpNC"
+      ],
+      "name": "Locations",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 36,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_Lhttt4",
+    "locations_MHRhdg",
+    "locations_hFTcyY"
+  ]
+}

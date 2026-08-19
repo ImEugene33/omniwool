@@ -1,0 +1,278 @@
+{%- doc -%}
+  Renders feature card metaobjects for the custom metaobject slider section.
+{%- enddoc -%}
+
+{% liquid
+  assign block_settings = block.settings
+  assign slider_items = section.settings.slider_items
+
+  if slider_items != blank
+    assign max_items = slider_items.count
+  elsif section.settings.layout_type == 'carousel'
+    assign max_items = section.settings.columns | plus: 2
+  else
+    assign max_items = section.settings.columns
+  endif
+
+  assign carousel_ref = 'woodSlider-' | append: block.id
+%}
+
+{% capture list_items %}
+  {% if slider_items != blank %}
+    {% for item in slider_items limit: max_items %}
+      <div class="resource-list__item{% if block_settings.item_color_scheme_source == 'custom' %} color-{{ block_settings.item_color_scheme }}{% endif %}">
+        {% liquid
+          assign card_title = item.title.value | default: item.title
+          assign card_icon = item.icon.value
+          assign card_description = item.description
+          assign card_sub_title = item.sub_title.value | default: item.sub_title
+          assign card_sub_content = item.sub_content
+          assign additional_options_title = item.title_for_additional_options.value | default: item.title_for_additional_options
+          assign additional_options = item.additional_options.value
+        %}
+
+        <article class="wood-slider-card">
+          <div class="wood-slider-card__main">
+            <div class="wood-slider-card__intro">
+              {% if card_icon != blank %}
+                <div class="wood-slider-card__icon">
+                  {{
+                    card_icon
+                    | image_url: width: 140
+                    | image_tag: loading: 'lazy', widths: '70, 140', alt: card_title
+                  }}
+                </div>
+              {% endif %}
+
+              <div class="wood-slider-card__copy">
+                {% if card_title != blank %}
+                  <h3 class="wood-slider-card__title">{{ card_title }}</h3>
+                {% endif %}
+
+                {% if card_description != blank %}
+                  <div class="wood-slider-card__description rte">
+                    {{ card_description | metafield_tag }}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+
+            {% if card_sub_title != blank or card_sub_content != blank or additional_options != blank %}
+              <div class="wood-slider-card__details">
+                {% if card_sub_title != blank or card_sub_content != blank %}
+                  <div class="wood-slider-card__content-group">
+                    {% if card_sub_title != blank %}
+                      <p class="wood-slider-card__tag-label">{{ card_sub_title }}</p>
+                    {% endif %}
+
+                    {% if card_sub_content != blank %}
+                      <div class="wood-slider-card__description rte">
+                        {{ card_sub_content | metafield_tag }}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endif %}
+
+                {% if additional_options != blank %}
+                  <div class="wood-slider-card__pick-group">
+                    {% if additional_options_title != blank %}
+                      <p class="wood-slider-card__tag-label">{{ additional_options_title }}</p>
+                    {% endif %}
+
+                    <div class="wood-slider-card__picks">
+                      {% for option in additional_options %}
+                        {% liquid
+                          assign option_title = option.title.value | default: option.title
+                          assign option_icon = option.svg_icon.value
+                          assign option_icon_image = option_icon.preview_image
+                        %}
+
+                        {% if option_title != blank or option_icon != blank %}
+                          <span class="wood-slider-card__pick">
+                            {% if option_icon != blank %}
+                              <span class="wood-slider-card__pick-icon">
+                                {% if option_icon_image != blank %}
+                                  {{
+                                    option_icon_image
+                                    | image_url: width: 32
+                                    | image_tag: loading: 'lazy', widths: '16, 32', alt: option_title
+                                  }}
+                                {% elsif option_icon.url != blank %}
+                                  <img src="{{ option_icon.url }}" alt="{{ option_title | escape }}" width="16" height="16" loading="lazy">
+                                {% endif %}
+                              </span>
+                            {% endif %}
+
+                            {% if option_title != blank %}
+                              <span>{{ option_title }}</span>
+                            {% endif %}
+                          </span>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        </article>
+      </div>
+      {% unless forloop.last %}
+        <!--@list/split-->
+      {% endunless %}
+    {% endfor %}
+  {% elsif request.design_mode %}
+    {% for i in (1..max_items) %}
+      <div class="resource-list__item{% if block_settings.item_color_scheme_source == 'custom' %} color-{{ block_settings.item_color_scheme }}{% endif %}">
+        <article class="wood-slider-card wood-slider-card--placeholder">
+          <div class="wood-slider-card__main">
+            <div class="wood-slider-card__intro">
+              <div class="wood-slider-card__copy">
+                <h3 class="wood-slider-card__title">{{ 'wood_slider.placeholder_title' | t }}</h3>
+                <div class="wood-slider-card__description rte">
+                  <p>{{ 'wood_slider.placeholder_description' | t }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+      {% unless forloop.last %}
+        <!--@list/split-->
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+{% endcapture %}
+
+{% liquid
+  assign list_items_output = list_items | strip
+  assign list_items_array = list_items_output | split: '<!--@list/split-->'
+%}
+
+{% if list_items_output != blank %}
+  <div
+    class="
+      wood-slider__slider-block
+      {% if section.settings.layout_type == 'carousel' %}force-full-width{% endif %}
+      {% if section.settings.carousel_on_mobile %}wood-slider__slider-block--mobile-full-width{% endif %}
+    "
+    style="
+      --wood-slider-block-padding-top: {{ block_settings.padding-block-start | default: 0 }}px;
+      --wood-slider-block-padding-bottom: {{ block_settings.padding-block-end | default: 0 }}px;
+      --wood-slider-block-padding-top-mobile: {{ block_settings.padding-block-start-mobile | default: 0 }}px;
+      --wood-slider-block-padding-bottom-mobile: {{ block_settings.padding-block-end-mobile | default: 0 }}px;
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% render 'resource-list',
+      list_items: list_items_output,
+      list_items_array: list_items_array,
+      settings: section.settings,
+      carousel_ref: carousel_ref,
+      slide_count: max_items,
+      content_type: 'wood-cards',
+      test_id: 'wood-slider-grid'
+    %}
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .wood-slider__slider-block {
+    padding-block: var(--wood-slider-block-padding-top) var(--wood-slider-block-padding-bottom);
+  }
+
+  @media screen and (max-width: 749px) {
+    .wood-slider__slider-block {
+      padding-block: var(--wood-slider-block-padding-top-mobile) var(--wood-slider-block-padding-bottom-mobile);
+    }
+
+    .wood-slider > .wood-slider__slider-block--mobile-full-width {
+      grid-column: 1 / -1;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Slider",
+  "tag": null,
+  "settings": [
+    {
+      "type": "select",
+      "id": "item_color_scheme_source",
+      "label": "Card color scheme",
+      "options": [
+        {
+          "value": "inherit",
+          "label": "Inherit from section"
+        },
+        {
+          "value": "custom",
+          "label": "Custom color scheme"
+        }
+      ],
+      "default": "inherit"
+    },
+    {
+      "type": "color_scheme",
+      "id": "item_color_scheme",
+      "label": "Card color scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.item_color_scheme_source == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "Desktop padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-mobile",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-mobile",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider"
+    }
+  ]
+}
+{% endschema %}

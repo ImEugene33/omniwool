@@ -1,0 +1,833 @@
+{% stylesheet %}
+  .locations-section .section-content-wrapper {
+    width: 100%;
+  }
+
+  .section-wrapper {
+    --section-height-offset: 0px;
+  }
+
+  .section[data-shopify-visual-preview] {
+    min-height: var(--section-preview-height);
+    padding-top: 0;
+  }
+
+  .section[data-shopify-visual-preview] .custom-section-background {
+    display: none;
+  }
+
+  body:has(> #header-group > .header-section > #header-component[transparent]):not(
+      :has(> #header-group > .header-section + .shopify-section)
+    )
+    > main
+    > .section-wrapper:first-child {
+    --section-height-offset: var(--header-group-height, 0);
+  }
+
+  .custom-section-background {
+    grid-column: 1 / -1;
+  }
+
+  .custom-section-content {
+    z-index: var(--layer-flat);
+  }
+{% endstylesheet %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="section locations-section section-{{ section.id }} section--{{ section.settings.section_width }} section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  data-testid="locations-section"
+  {% if request.visual_preview_mode %}
+    data-shopify-visual-preview
+  {% endif %}
+  style="
+    {% if section.settings.section_height == 'custom' %}
+      --section-min-height: {{ section.settings.section_height_custom }}svh;
+    {% elsif section.settings.section_height == 'full-screen' %}
+      --section-min-height: 100svh;
+    {% elsif section.settings.section_height != '' %}
+      --section-min-height: var(--section-height-{{ section.settings.section_height }});
+    {% endif %}
+
+    {% if section.settings.section_height != '' %}
+      --section-preview-height: 600px;
+    {% endif %}
+  "
+>
+  <div class="custom-section-background">
+    {% render 'background-media',
+      background_media: section.settings.background_media,
+      background_video: section.settings.video,
+      background_video_position: section.settings.video_position,
+      background_image: section.settings.background_image,
+      background_image_position: section.settings.background_image_position
+    %}
+  </div>
+
+  <div
+    class="border-style custom-section-content"
+    style="{% render 'border-override', settings: section.settings %}"
+  >
+    {% if section.settings.toggle_overlay %}
+      {% render 'overlay', settings: section.settings, layer: '0' %}
+    {% endif %}
+
+    <div
+      class="
+        spacing-style
+        layout-panel-flex
+        layout-panel-flex--{{ section.settings.content_direction }}
+        section-content-wrapper
+        {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+      "
+      style="
+        {% render 'layout-panel-style', settings: section.settings %}
+        {% render 'spacing-style', settings: section.settings %}
+      "
+      data-testid="locations-section-content"
+    >
+      {% content_for 'blocks' %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Locations",
+  "class": "section-wrapper",
+  "blocks": [
+    {
+      "type": "group-text"
+    },
+    {
+      "type": "_location-grid"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.layout"
+    },
+    {
+      "type": "select",
+      "id": "content_direction",
+      "label": "t:settings.direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:options.vertical"
+        },
+        {
+          "value": "row",
+          "label": "t:options.horizontal"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "checkbox",
+      "id": "vertical_on_mobile",
+      "label": "t:settings.vertical_on_mobile",
+      "default": true,
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment",
+      "label": "t:settings.alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        },
+        {
+          "value": "space-between",
+          "label": "t:options.space_between"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.top"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.bottom"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ section.settings.content_direction == 'row' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "align_baseline",
+      "label": "t:settings.align_baseline",
+      "default": false,
+      "visible_if": "{{ section.settings.vertical_alignment == 'flex-end' }}"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_alignment_flex_direction_column",
+      "label": "t:settings.alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "flex-start",
+      "visible_if": "{{ section.settings.content_direction != 'row' }}"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment_flex_direction_column",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:options.top"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:options.bottom"
+        },
+        {
+          "value": "space-between",
+          "label": "t:options.space_between"
+        }
+      ],
+      "default": "center",
+      "visible_if": "{{ section.settings.content_direction == 'column' }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "t:content.size"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+{
+  "type": "select",
+  "id": "section_width_mobile",
+  "label": "Mobile width",
+  "options": [
+    {
+      "value": "page-width",
+      "label": "t:options.page"
+    },
+    {
+      "value": "full-width",
+      "label": "t:options.full"
+    }
+  ],
+  "default": "page-width"
+},
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "t:settings.height",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.auto"
+        },
+        {
+          "value": "small",
+          "label": "t:options.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:options.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:options.large"
+        },
+        {
+          "value": "full-screen",
+          "label": "t:options.full_screen"
+        },
+        {
+          "value": "custom",
+          "label": "t:options.custom"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "range",
+      "id": "section_height_custom",
+      "label": "t:settings.custom_height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "%",
+      "visible_if": "{{ section.settings.section_height == 'custom' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "label": "t:settings.background_media",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "image",
+          "label": "t:options.image"
+        },
+        {
+          "value": "video",
+          "label": "t:options.video"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:settings.video",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "t:settings.video_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:settings.image",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "t:settings.image_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "fit",
+          "label": "t:options.fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.borders",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.border_opacity",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "t:settings.background_overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:settings.overlay_color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "t:settings.overlay_style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        },
+        {
+          "value": "gradient",
+          "label": "t:options.gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "t:settings.gradient_direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "t:options.up"
+        },
+        {
+          "value": "to bottom",
+          "label": "t:options.down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ section.settings.toggle_overlay and section.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Locations",
+      "category": "Custom",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 36,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1a701f34-f6e1-4843-9a3f-d23332e16de5",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      },
+      "blocks": {
+        "group_text_aYRBb6": {
+          "type": "group-text",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "center",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 0,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Located in</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "1.25rem",
+                "weight": "300",
+                "weight_active": "inherit",
+                "line_height": "normal",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "color": "var(--color-foreground-heading)",
+                "background": true,
+                "background_color": "rgba(0,0,0,0)",
+                "text_color": "#d23d00",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>The Heart of Texas</h2>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "center",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "3.5rem",
+                "weight": "600",
+                "weight_active": "600",
+                "line_height": "tight",
+                "letter_spacing": "loose",
+                "case": "uppercase",
+                "wrap": "balance",
+                "color": "var(--color-foreground-heading)",
+                "background": false,
+                "background_color": "#00000026",
+                "text_color": "#000000",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0,
+                "padding-block-start-mobile": 0,
+                "padding-block-end-mobile": 0,
+                "padding-inline-start-mobile": 0,
+                "padding-inline-end-mobile": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": ["eyebrow", "heading"]
+        },
+        "location_grid_zmXeFz": {
+          "type": "_location-grid",
+          "name": "Location grid",
+          "settings": {
+            "columns_desktop": 2,
+            "columns_tablet": 2,
+            "columns_mobile": 1,
+            "gap_desktop": 60,
+            "gap_adaptive": 20,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {
+            "location_item_dMzWHA": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.8882927857835!2d-97.7856216!3d29.5196151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865ccad4b1d6f611%3A0x648264626a0a0683!2s12527%20Capote%20Rd%2C%20Seguin%2C%20TX%2078155%2C%20USA!5e0!3m2!1sen!2sua!4v1783645575663!5m2!1sen!2sua\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Seguin Yard",
+                "link_label": "Get directions",
+                "link": "https://www.google.com/maps/place/12527+Capote+Rd,+Seguin,+TX+78155,+USA/@29.5196151,-97.7856216,17z/data=!3m1!4b1!4m6!3m5!1s0x865ccad4b1d6f611:0x648264626a0a0683!8m2!3d29.5196151!4d-97.7856216!16s%2Fg%2F11trr6jhzh?entry=ttu&g_ep=EgoyMDI2MDcwNy4wIKXMDSoASAFQAw%3D%3D"
+              },
+              "blocks": {
+                "icon_hJWbfM": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "clock",
+                    "width": 26,
+                    "label": "<p>Mon - Fri: 7 am - 5 pm <br/>Sat: 9 am - 12 pm</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_GmkNm3": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>12527 Capote Rd<br/>Seguin, TX 78155</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_3iBbxP": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:8302051035\" title=\"tel:8302051035\">830-205-1035</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["icon_hJWbfM", "icon_GmkNm3", "icon_3iBbxP"]
+            },
+            "location_item_EXik4L": {
+              "type": "_location-item",
+              "name": "Location item",
+              "settings": {
+                "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.4922952781244!2d-97.45974!3d29.5311545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86433e3562ad4a1d%3A0xbaf68156ff321f62!2s820%20Oil%20Patch%20Ln%2C%20Gonzales%2C%20TX%2078629%2C%20USA!5e0!3m2!1sen!2sua!4v1783648113270!5m2!1sen!2sua\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+                "title": "Gonzales Yard",
+                "link_label": "Get directions",
+                "link": "https://maps.app.goo.gl/vavhu7V7Cvmc389GA"
+              },
+              "blocks": {
+                "icon_G9PKAb": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "clock",
+                    "width": 26,
+                    "label": "<p>Mon - Fri: 7 am - 5 pm <br/>Sat: 9 am - 12 pm</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_kQbhdW": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "pointer",
+                    "width": 26,
+                    "label": "<p>820 Oil Patch Ln<br/>Gonzales, TX 78629</p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "icon_grzGm9": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "phone",
+                    "width": 26,
+                    "label": "<p><a href=\"tel:8302051035\" title=\"tel:8302051035\">830-205-1035</a></p>",
+                    "label_font": "var(--font-heading--family)",
+                    "label_layout": "horizontal",
+                    "label_position": "after",
+                    "horizontal_alignment": "center",
+                    "vertical_alignment": "center",
+                    "gap": 13,
+                    "padding_top": 0,
+                    "padding_bottom": 0,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["icon_G9PKAb", "icon_kQbhdW", "icon_grzGm9"]
+            }
+          },
+          "block_order": ["location_item_dMzWHA", "location_item_EXik4L"]
+        }
+      },
+      "block_order": ["group_text_aYRBb6", "location_grid_zmXeFz"]
+    }
+  ]
+}
+{% endschema %}

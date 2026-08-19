@@ -1,0 +1,322 @@
+{%- doc -%}
+  Renders a wrapper section
+
+  @param {section} section - The section object
+  @param {string} children - The children of the section
+  @param {boolean} [has_accordion] - Whether the section contains an accordion block
+{%- enddoc -%}
+
+{% liquid
+  assign faq_layout = section.settings.faq_layout | default: 'none'
+  assign use_faq_layout = false
+
+  if has_accordion and faq_layout != 'none'
+    assign use_faq_layout = true
+  endif
+%}
+
+{% if section.settings.content_direction == 'row' and section.settings.custom_style %}
+  {{ 'rich-text-stats.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div
+  class="
+    section {{ additional_classes }}
+    section--{{ section.settings.section_width }}
+    section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    {% if section.settings.content_direction == 'row' %}section--rich-text-stats{% endif %}
+    {% if use_faq_layout %}section--faq-layout section--faq-layout-{{ faq_layout }}{% endif %}
+  "
+  data-testid="ui-test-section"
+
+  {% if request.visual_preview_mode %}
+    data-shopify-visual-preview
+  {% endif %}
+
+  style="
+    {% if section.settings.section_height == 'custom' %}
+      --section-min-height: {{ section.settings.section_height_custom }}svh;
+    {% elsif section.settings.section_height == 'full-screen' %}
+      --section-min-height: 100svh;
+    {% elsif section.settings.section_height != '' %}
+      --section-min-height: var(--section-height-{{ section.settings.section_height }});
+    {% endif %}
+
+     {% if section.settings.section_height != '' %}
+     --section-preview-height: 600px;
+     {% endif %}
+
+    {% if use_faq_layout %}
+      --faq-row-gap: {{ section.settings.faq_row_gap | default: 0 }}px;
+      --faq-column-gap: {{ section.settings.faq_column_gap | default: 56 }}px;
+      --faq-side-width: {{ section.settings.faq_side_width | default: 40 }}%;
+      --faq-image-height: {{ section.settings.faq_image_height | default: 420 }}px;
+      --faq-image-fit: {{ section.settings.faq_image_fit | default: 'cover' }};
+      --faq-image-position: {{ section.settings.faq_image_position | default: 'center' }};
+    {% endif %}
+  "
+>
+  <div class="custom-section-background">
+    {% render 'background-media',
+      background_media: section.settings.background_media,
+      background_video: section.settings.video,
+      background_video_position: section.settings.video_position,
+      background_image: section.settings.background_image,
+      background_image_position: section.settings.background_image_position
+    %}
+  </div>
+
+  <div
+    class="border-style custom-section-content"
+    style="{% render 'border-override', settings: section.settings %}"
+  >
+    {% if section.settings.toggle_overlay %}
+      {% render 'overlay', settings: section.settings, layer: '0' %}
+    {% endif %}
+
+    <div
+      class="
+        spacing-style
+        layout-panel-flex
+        layout-panel-flex--{{ section.settings.content_direction }}
+        section-content-wrapper
+        {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+      "
+      style="
+        {% render 'layout-panel-style', settings: section.settings %}
+        {% render 'spacing-style', settings: section.settings %}
+      "
+      data-testid="section-content"
+    >
+      {% if use_faq_layout and faq_layout == 'image' %}
+        <div class="faq-layout__image{% if section.settings.faq_image != blank %} faq-layout__image--has-image{% endif %}">
+          {% if section.settings.faq_image != blank %}
+            {{
+              section.settings.faq_image
+              | image_url: width: 1600
+              | image_tag:
+                class: 'faq-layout__image-element',
+                loading: 'lazy',
+                widths: '400, 600, 800, 1200, 1600',
+                sizes: '(min-width: 750px) 45vw, 100vw',
+                alt: section.settings.faq_image.alt
+            }}
+          {% endif %}
+        </div>
+
+        <div class="faq-layout__content">
+          {{ children }}
+        </div>
+      {% else %}
+        {{ children }}
+      {% endif %}
+    </div>
+
+    {% if section.settings.content_direction == 'row' and section.settings.horizontal_rich_text_corner_image != blank %}
+      {{
+        section.settings.horizontal_rich_text_corner_image
+        | image_url: width: 244
+        | image_tag:
+          class: 'rich-text-stats__corner-image',
+          loading: 'lazy',
+          widths: '122, 244',
+          sizes: '122px',
+          alt: ''
+      }}
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .section-wrapper {
+    --section-height-offset: 0px;
+  }
+
+  .section[data-shopify-visual-preview] {
+    min-height: var(--section-preview-height);
+    padding-top: 0;
+  }
+
+  .section[data-shopify-visual-preview] .custom-section-background {
+    display: none;
+  }
+
+  body:has(> #header-group > .header-section > #header-component[transparent]):not(
+      :has(> #header-group > .header-section + .shopify-section)
+    )
+    > main
+    > .section-wrapper:first-child {
+    --section-height-offset: var(--header-group-height, 0);
+  }
+
+  .custom-section-background {
+    grid-column: 1 / -1;
+  }
+
+  .custom-section-content {
+    z-index: var(--layer-flat);
+  }
+
+  .section--faq-layout .section-content-wrapper {
+    width: 100%;
+    gap: var(--faq-row-gap) var(--faq-column-gap);
+  }
+
+  .section--faq-layout-default .section-content-wrapper > .accordion {
+    margin-inline: auto;
+  }
+
+  .section--faq-layout-default .section-content-wrapper > .text-block:first-child {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .section--faq-layout-side-by-side .section-content-wrapper,
+  .section--faq-layout-image .section-content-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, var(--faq-side-width)) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .section--faq-layout-image .section-content-wrapper {
+    position: relative;
+    align-content: center;
+    min-height: var(--faq-image-height);
+  }
+
+  .section--page-width.section--faq-layout-image .section-content-wrapper {
+    overflow: visible;
+  }
+
+  .section--faq-layout-side-by-side .section-content-wrapper > .accordion {
+    grid-column: 2;
+    grid-row: 1 / span 50;
+    max-width: none;
+    margin: 0;
+  }
+
+  .section--faq-layout-image .faq-layout__content {
+    grid-column: 2;
+    position: relative;
+    min-height: var(--faq-image-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: var(--vertical-alignment);
+    align-items: var(--horizontal-alignment);
+    gap: var(--faq-row-gap);
+  }
+
+  .section--faq-layout-image .faq-layout__content .accordion {
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .section--faq-layout-side-by-side .section-content-wrapper > :not(.accordion) {
+    grid-column: 1;
+    max-width: 100%;
+  }
+
+  .section--faq-layout-image .section-content-wrapper > :not(.accordion):not(.faq-layout__image):not(.faq-layout__content) {
+    grid-column: 2;
+  }
+
+  .faq-layout__image {
+    grid-column: 1;
+    grid-row: 1;
+    position: absolute;
+    inset-block: 0;
+    inset-inline-start: 0;
+    width: var(--faq-side-width);
+    min-height: var(--faq-image-height);
+    align-self: stretch;
+    background:
+      linear-gradient(45deg, rgb(0 0 0 / 4%) 25%, transparent 25%),
+      linear-gradient(-45deg, rgb(0 0 0 / 4%) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgb(0 0 0 / 4%) 75%),
+      linear-gradient(-45deg, transparent 75%, rgb(0 0 0 / 4%) 75%);
+    background-color: rgb(255 255 255 / 40%);
+    background-position:
+      0 0,
+      0 12px,
+      12px -12px,
+      -12px 0;
+    background-size: 24px 24px;
+    overflow: hidden;
+  }
+
+  .faq-layout__image--has-image {
+    background: transparent;
+  }
+
+  .section--faq-layout-image .faq-layout__image {
+    height: 100%;
+    min-height: var(--faq-image-height);
+  }
+
+  .section--page-width.section--faq-layout-image .faq-layout__image {
+    width: calc(var(--faq-side-width) - var(--full-page-margin-inline-offset));
+    margin-inline-start: var(--full-page-margin-inline-offset);
+  }
+
+  .faq-layout__image-element {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: var(--faq-image-height);
+    object-fit: var(--faq-image-fit);
+    object-position: var(--faq-image-position);
+  }
+
+  @media screen and (max-width: 749px) {
+    .section--faq-layout-side-by-side .section-content-wrapper,
+    .section--faq-layout-image .section-content-wrapper {
+      grid-template-columns: minmax(0, 1fr);
+      align-items: stretch;
+      align-content: stretch;
+      min-height: 0;
+    }
+
+    .section--faq-layout-side-by-side .section-content-wrapper > :not(.accordion),
+    .section--faq-layout-image .section-content-wrapper > :not(.accordion):not(.faq-layout__image):not(.faq-layout__content),
+    .section--faq-layout-image .faq-layout__content,
+    .section--faq-layout-side-by-side .section-content-wrapper > .accordion,
+    .section--faq-layout-image .section-content-wrapper > .accordion,
+    .section--faq-layout-image .faq-layout__image {
+      position: relative;
+      inset: auto;
+      grid-column: 1;
+      grid-row: auto;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: 0;
+      margin-inline: 0;
+    }
+
+    .section--faq-layout-image .faq-layout__content {
+      position: relative;
+      min-height: 0;
+      justify-content: var(--vertical-alignment-mobile);
+    }
+
+    .section--faq-layout-image .faq-layout__content .accordion {
+      position: relative;
+      inset: auto;
+      transform: none;
+    }
+
+    .section--page-width.section--faq-layout-image .faq-layout__image {
+      width: 100%;
+      margin-inline-start: 0;
+    }
+
+    .faq-layout__image-element {
+      height: auto;
+      min-height: 0;
+    }
+  }
+{% endstylesheet %}

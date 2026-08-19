@@ -1,0 +1,71 @@
+.pickup-info {
+  width: 100%;
+  color: #5c4d3a;
+  background: transparent;
+}
+
+.pickup-info__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pickup-info__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 48%;
+  min-height: 98px;
+  padding: 16px 12px 12px;
+  overflow: hidden;
+  border: 1px solid #2c1f15;
+  border-radius: 4px;
+  background: var(--color-background);
+}
+
+.pickup-info__title {
+  margin: 0;
+  color: #5c4d3a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+}
+
+.pickup-info__content {
+  color: #5c4d3a;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
+  p{
+    padding-bottom: 0;
+    margin: 0;
+  }
+}
+
+.pickup-info__content > * {
+  margin-block: 0;
+}
+
+.pickup-info__content > * + * {
+  margin-block-start: 8px;
+}
+
+@media screen and (max-width: 749px) {
+  .pickup-info__inner {
+    justify-content: flex-start;
+  }
+
+  .pickup-info__item {
+    width: 100%;
+  }
+}

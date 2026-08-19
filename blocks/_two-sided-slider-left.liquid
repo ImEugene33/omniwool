@@ -1,0 +1,79 @@
+{% doc %}
+Renders the static left content block for the two-sided slider section.
+@example
+{% content_for 'block', type: '_two-sided-slider-left', id: 'two-sided-slider-left' %}
+{% enddoc %}
+
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+<div class="two-sided-slider__left" {{ block.shopify_attributes }}>
+  {% if block.settings.decor_img != blank %}
+    <div class="two-sided-slider__decor-image">
+      {{
+        block.settings.decor_img
+        | image_url: width: 320
+        | image_tag:
+          alt: block.settings.decor_img.alt,
+          loading: 'lazy',
+          widths: '160, 240, 320'
+      }}
+    </div>
+  {% endif %}
+
+  <div
+    class="two-sided-slider__left-content"
+    style="--two-sided-slider-left-gap: {{ block.settings.gap }}px;"
+  >
+    {{ children }}
+  </div>
+</div>
+
+{% stylesheet %}
+  .two-sided-slider__left-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--two-sided-slider-left-gap, 20px);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Two-sided slider left",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "group-text"
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "image_picker",
+      "id": "decor_img",
+      "label": "Decoration image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two-sided slider left"
+    }
+  ]
+}
+{% endschema %}

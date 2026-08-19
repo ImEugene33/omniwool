@@ -1,0 +1,62 @@
+.pairs-well-with {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  color: var(--color-foreground);
+  background: var(--color-background);
+}
+
+.pairs-well-with__heading {
+  margin: 0;
+  color: currentColor;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+
+.pairs-well-with__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pairs-well-with__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid currentColor;
+  overflow: hidden;
+  color: currentColor;
+  background: transparent;
+}
+
+.pairs-well-with__image {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
+}
+
+.pairs-well-with__item-title {
+  color: currentColor;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

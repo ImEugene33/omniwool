@@ -1,0 +1,446 @@
+
+{% liquid
+  assign block_settings = block.settings
+  assign show_borders = true
+  assign row_color_scheme = block_settings.row_color_scheme | default: 'scheme-1'
+  assign open_row_color_scheme = block_settings.open_row_color_scheme | default: row_color_scheme
+  assign faq_items = blank
+  assign render_faq_metafield = false
+
+  if block_settings.show_borders == false
+    assign show_borders = false
+  endif
+
+  if block_settings.use_product_faq_metafield
+    if product != blank and product.metafields.custom.faq.value != blank
+      assign faq_items = product.metafields.custom.faq.value
+    elsif collection != blank and collection.metafields.custom.faq.value != blank
+      assign faq_items = collection.metafields.custom.faq.value
+    elsif page != blank and page.metafields.custom.faq.value != blank
+      assign faq_items = page.metafields.custom.faq.value
+    endif
+  endif
+
+  if faq_items != blank
+    assign render_faq_metafield = true
+  endif
+
+  assign summary_type_preset = block_settings.type_preset
+  if summary_type_preset == blank
+    assign summary_type_preset = 'h6'
+  endif
+%}
+{% capture accordion_rows %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+{% style %}
+  {% for scheme in settings.color_schemes %}
+    .accordion-row-scheme-{{ scheme.id }} .details {
+      background-color: {{ scheme.settings.background }};
+      color: {{ scheme.settings.foreground }};
+    }
+
+    .accordion-row-scheme-{{ scheme.id }}.accordion--has-borders .details {
+      border-color: {{ scheme.settings.border }};
+    }
+
+    .accordion-open-row-scheme-{{ scheme.id }} .details[open] {
+      background-color: {{ scheme.settings.background }};
+      color: {{ scheme.settings.foreground }};
+    }
+  {% endfor %}
+{% endstyle %}
+
+<div
+        class="accordion accordion--{{ block_settings.icon }} accordion--cards accordion--container-{{ block_settings.container_size }} accordion-row-scheme-{{ row_color_scheme }} accordion-open-row-scheme-{{ open_row_color_scheme }} border-style spacing-style{% if block_settings.inherit_color_scheme == false %} color-{{ block_settings.color_scheme }}{% endif %}{% if show_borders %} accordion--has-borders{% else %} accordion--no-borders{% endif %}"
+  style="
+    --accordion-row-border-radius: {{ block_settings.row_border_radius }}px;
+    --accordion-row-gap: {{ block_settings.row_gap }}px;
+    --summary-font-family: var(--font-{{ summary_type_preset }}--family, var(--font-h6--family));
+    --summary-font-style: var(--font-{{ summary_type_preset }}--style, var(--font-h6--style));
+    --summary-font-weight: var(--font-{{ summary_type_preset }}--weight, var(--font-h6--weight));
+    --summary-font-size: var(--font-{{ summary_type_preset }}--size, var(--font-h6--size));
+    --summary-font-line-height: var(--font-{{ summary_type_preset }}--line-height, var(--font-h6--line-height));
+    --summary-font-letter-spacing: var(--font-{{ summary_type_preset }}--letter-spacing, var(--font-h6--letter-spacing));
+    --summary-font-case: var(--font-{{ summary_type_preset }}--case, var(--font-h6--case));
+    {% render 'spacing-style', settings: block_settings %}
+    {% render 'border-override', settings: block_settings %}
+  "
+  {{ block.shopify_attributes }}
+>
+  {{ accordion_rows }}
+
+  {% if render_faq_metafield %}
+    {% for faq_item in faq_items %}
+      {% liquid
+        assign faq_question = faq_item.question.value | strip_html | strip
+        assign faq_answer = faq_item.answer | metafield_tag
+        assign faq_answer_text = faq_answer | strip_html | strip
+      %}
+
+      {% if faq_question != blank or faq_answer_text != blank %}
+        {% capture faq_row %}
+          <details
+            class="details"
+            data-faq-accordion-row
+            data-testid="accordion-details"
+          >
+            <summary class="details__header">
+              {{ faq_question }}
+              <span class="svg-wrapper icon-caret icon-animated">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+              <span class="svg-wrapper icon-plus">
+                {{- 'icon-plus.svg' | inline_asset_content -}}
+              </span>
+              <span class="svg-wrapper icon-minus">
+                {{- 'icon-minus.svg' | inline_asset_content -}}
+              </span>
+            </summary>
+
+            <div class="details-content">
+              {% if faq_answer_text != blank %}
+                <div class="accordion-row__content-text">
+                  {{ faq_answer }}
+                </div>
+              {% endif %}
+            </div>
+          </details>
+        {% endcapture %}
+
+        {% render 'accordion-custom-component',
+          children: faq_row,
+          open_by_default_on_desktop: false,
+          open_by_default_on_mobile: false
+        %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .accordion {
+    flex: 1;
+    width: 100%;
+  }
+
+  .accordion--cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--accordion-row-gap, 20px);
+  }
+
+  .accordion--cards accordion-custom {
+    display: block;
+  }
+
+  .accordion.accordion--cards .details {
+    border-radius: var(--accordion-row-border-radius, 4px);
+    overflow: clip;
+  }
+
+  .accordion--cards .details__header {
+    padding: 16px 24px;
+  }
+
+  .accordion--cards .details-content {
+    padding-inline: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .accordion--cards .details[open] .details-content {
+    padding-block-end: 16px;
+  }
+
+  .accordion--has-borders {
+    border: 0;
+  }
+
+  .accordion.accordion--has-borders .details {
+    border: 1px solid var(--color-border);
+  }
+
+  .accordion--no-borders,
+  .accordion.accordion--no-borders .details {
+    border: 0 !important;
+  }
+
+  .accordion--caret .icon-plus,
+  .accordion--caret .icon-minus,
+  .accordion--plus .icon-caret,
+  .accordion--plus .details[open] .icon-plus,
+  .accordion--plus .details:not([open]) .icon-minus {
+    display: none;
+  }
+
+  /* because we can't pass apply a specific class on a block based on its parent block setting */
+  .accordion .details__header {
+    font-family: var(--summary-font-family);
+    font-style: var(--summary-font-style);
+    font-weight: var(--summary-font-weight);
+    font-size: var(--summary-font-size);
+    line-height: var(--summary-font-line-height);
+    letter-spacing: var(--summary-font-letter-spacing);
+    text-transform: var(--summary-font-case);
+    min-height: var(--minimum-touch-target);
+    justify-content: space-between;
+  }
+.accordion--container-small {
+  max-width: 1005px;
+  margin-inline: auto;
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:names.accordion",
+  "tag": null,
+  "class": "accordion",
+  "blocks": [
+    {
+      "type": "_accordion-row"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "caret",
+          "label": "t:options.caret"
+        },
+        {
+          "value": "plus",
+          "label": "t:options.plus"
+        }
+      ],
+      "default": "plus"
+    },
+    {
+      "type": "select",
+      "id": "container_size",
+      "label": "Container width",
+      "options": [
+      {
+      "value": "normal",
+      "label": "Normal"
+      },
+      {
+      "value": "small",
+      "label": "Small"
+      }
+      ],
+      "default": "small"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_borders",
+      "label": "Show accordion borders",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_faq_metafield",
+      "label": "Use FAQ metafield",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Accordion rows"
+    },
+    {
+      "type": "color_scheme",
+      "id": "row_color_scheme",
+      "label": "Row color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "color_scheme",
+      "id": "open_row_color_scheme",
+      "label": "Open row color scheme",
+      "default": "scheme-5"
+    },
+    {
+      "type": "range",
+      "id": "row_border_radius",
+      "label": "Row corner radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Row gap",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "select",
+      "id": "type_preset",
+      "label": "t:settings.heading_preset",
+      "options": [
+        {
+          "value": "",
+          "label": "t:options.default"
+        },
+        {
+          "value": "paragraph",
+          "label": "t:options.paragraph"
+        },
+        {
+          "value": "h1",
+          "label": "t:options.h1"
+        },
+        {
+          "value": "h2",
+          "label": "t:options.h2"
+        },
+        {
+          "value": "h3",
+          "label": "t:options.h3"
+        },
+        {
+          "value": "h4",
+          "label": "t:options.h4"
+        },
+        {
+          "value": "h5",
+          "label": "t:options.h5"
+        },
+        {
+          "value": "h6",
+          "label": "t:options.h6"
+        }
+      ],
+      "default": "h6",
+      "info": "t:info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_color_scheme",
+      "label": "t:settings.inherit_color_scheme",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1",
+      "visible_if": "{{ block.settings.inherit_color_scheme == false }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.borders"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.style",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:settings.thickness",
+      "default": 1,
+      "visible_if": "{{ block.settings.border != \"none\" }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.opacity",
+      "default": 100,
+      "visible_if": "{{ block.settings.border != \"none\" }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:names.accordion",
+      "category": "t:categories.layout",
+      "blocks": {},
+      "block_order": []
+    }
+  ]
+}
+{% endschema %}

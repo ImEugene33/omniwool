@@ -1,0 +1,187 @@
+{% style %}
+  .location-grid-{{ block.id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_mobile }}, minmax(0, 1fr));
+    gap: {{ block.settings.gap_adaptive }}px;
+    padding-block: {{ block.settings['padding-block-start-mobile'] }}px {{ block.settings['padding-block-end-mobile'] }}px;
+    padding-inline: {{ block.settings['padding-inline-start-mobile'] }}px {{ block.settings['padding-inline-end-mobile'] }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .location-grid-{{ block.id }} {
+      grid-template-columns: repeat({{ block.settings.columns_tablet }}, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 1024px) { 
+    .location-grid-{{ block.id }} {
+      grid-template-columns: repeat({{ block.settings.columns_desktop }}, minmax(0, 1fr));
+      gap: {{ block.settings.gap_desktop }}px;
+      padding-block: {{ block.settings['padding-block-start'] }}px {{ block.settings['padding-block-end'] }}px;
+      padding-inline: {{ block.settings['padding-inline-start'] }}px {{ block.settings['padding-inline-end'] }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="location-grid location-grid-{{ block.id }}" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Location grid",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_location-item"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Grid"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Items per row desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "label": "Items per row tablet",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Items per row mobile",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "label": "Gap desktop",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "gap_adaptive",
+      "label": "Gap mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "Desktop padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-mobile",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-mobile",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start-mobile",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end-mobile",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Location grid",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

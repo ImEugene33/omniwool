@@ -1,0 +1,165 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign metafield_namespace = block_settings.metafield_namespace | default: 'custom'
+  assign metafield_key = block_settings.metafield_key | default: 'pickup_info'
+  assign pickup_metafield = closest.product.metafields[metafield_namespace][metafield_key]
+  assign pickup_entries = pickup_metafield.value
+-%}
+
+{%- capture pickup_items -%}
+  {%- if pickup_metafield.type contains 'list.' -%}
+    {%- for pickup in pickup_entries -%}
+      {%- assign pickup_title = pickup.title.value | default: pickup.title -%}
+
+      {%- capture pickup_content -%}
+        {%- if pickup.content != blank -%}
+          {{ pickup.content | metafield_tag }}
+        {%- elsif pickup.info.value != blank -%}
+          <p>{{ pickup.info.value | escape }}</p>
+        {%- elsif pickup.info != blank -%}
+          <p>{{ pickup.info | escape }}</p>
+        {%- endif -%}
+      {%- endcapture -%}
+
+      {%- assign pickup_content_text = pickup_content | strip_html | strip -%}
+
+      {%- if pickup_title != blank or pickup_content_text != blank -%}
+        <div class="pickup-info__item">
+          {%- if pickup_title != blank -%}
+            <h3 class="pickup-info__title">{{ pickup_title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if pickup_content_text != blank -%}
+            <div class="pickup-info__content rte">
+              {{ pickup_content }}
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- else -%}
+    {%- assign pickup = pickup_entries -%}
+    {%- assign pickup_title = pickup.title.value | default: pickup.title -%}
+
+    {%- capture pickup_content -%}
+      {%- if pickup.content != blank -%}
+        {{ pickup.content | metafield_tag }}
+      {%- elsif pickup.info.value != blank -%}
+        <p>{{ pickup.info.value | escape }}</p>
+      {%- elsif pickup.info != blank -%}
+        <p>{{ pickup.info | escape }}</p>
+      {%- endif -%}
+    {%- endcapture -%}
+
+    {%- assign pickup_content_text = pickup_content | strip_html | strip -%}
+
+    {%- if pickup_title != blank or pickup_content_text != blank -%}
+      <div class="pickup-info__item">
+        {%- if pickup_title != blank -%}
+          <h3 class="pickup-info__title">{{ pickup_title | escape }}</h3>
+        {%- endif -%}
+
+        {%- if pickup_content_text != blank -%}
+          <div class="pickup-info__content rte">
+            {{ pickup_content }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- liquid
+  assign pickup_items_text = pickup_items | strip_html | strip
+-%}
+
+{{ 'pickup-info.css' | asset_url | stylesheet_tag }}
+
+{%- if pickup_items_text != blank -%}
+  <div
+    class="pickup-info color-{{ block_settings.color_scheme }} spacing-style"
+    style="{% render 'spacing-style', settings: block_settings %}"
+    {{ block.shopify_attributes }}
+  >
+    <div class="pickup-info__inner">
+      {{ pickup_items }}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Pickup info",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key",
+      "default": "pickup_info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pickup info",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

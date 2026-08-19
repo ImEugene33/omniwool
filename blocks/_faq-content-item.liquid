@@ -1,0 +1,129 @@
+{% liquid
+  assign block_settings = block.settings
+  assign item_text = block_settings.text | strip
+%}
+
+{% if item_text != blank %}
+  <div
+    class="faq-content-item"
+    style="
+      --faq-content-item-icon-width: {{ block_settings.width }}px;
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% render 'icon-or-image',
+      icon: block_settings.icon,
+      image_upload: block_settings.image_upload,
+      width: block_settings.width,
+      class_name: 'faq-content-item__icon'
+    %}
+
+    <span class="faq-content-item__text">{{ block_settings.text }}</span>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .faq-content-item {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2xs);
+    font-size: var(--font-size--body-sm);
+    line-height: var(--line-height--body-normal);
+  }
+
+  .faq-content-item__icon {
+    flex: 0 0 var(--faq-content-item-icon-width);
+    width: var(--faq-content-item-icon-width);
+    height: auto;
+  }
+
+  .faq-content-item__text {
+    min-width: 0;
+    color: #000;
+    font-family: "Termina",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FAQ content item",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "t:settings.icon",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "check_box",
+          "label": "t:options.check_box"
+        },
+        {
+          "value": "question_mark",
+          "label": "t:options.question_mark"
+        },
+        {
+          "value": "chat_bubble",
+          "label": "t:options.chat_bubble"
+        },
+        {
+          "value": "arrow",
+          "label": "t:options.arrow"
+        },
+        {
+          "value": "star",
+          "label": "t:options.star"
+        },
+        {
+          "value": "truck",
+          "label": "t:options.truck"
+        },
+        {
+          "value": "return",
+          "label": "t:options.return"
+        }
+      ],
+      "default": "check_box"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_upload",
+      "label": "t:settings.image_icon"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "t:settings.width",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ content item"
+    }
+  ]
+}
+{% endschema %}

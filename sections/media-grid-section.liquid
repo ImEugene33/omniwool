@@ -1,0 +1,228 @@
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    section--{{ section.settings.section_width }} section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+  "
+>
+  <div
+    class="spacing-style media-grid-section__content"
+    style="
+      {% render 'spacing-style', settings: section.settings %}
+      --media-grid-section-gap: {{ section.settings.gap }}px;
+    "
+  >
+    {{ children }}
+  </div>
+</div>
+
+{% stylesheet %}
+  .media-grid-section__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .media-grid-section__content > .text-block:nth-child(1),
+  .media-grid-section__content > .text-block:nth-child(2) {
+    width: fit-content;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .media-grid-section__content > .text-block:nth-child(1) :is(h1, h2, h3, p) {
+    margin: 0;
+    color: #2c1f15;
+    font-family: "Termina", "Montserrat", sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: -0.18px;
+    text-transform: uppercase;
+  }
+
+  .media-grid-section__content > .text-block:nth-child(1) :is(strong, b) {
+    font-weight: 800;
+  }
+
+  .media-grid-section__content > .text-block:nth-child(2) :is(p, h1, h2, h3) {
+    margin: 0;
+    color: #d23d00;
+    font-family: "Termina", "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+  }
+
+  .media-grid-section__content > .media-grid-block {
+    margin-block-start: 32px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .media-grid-section__content > .text-block:nth-child(1) :is(h1, h2, h3, p) {
+      font-size: 28px;
+      line-height: 32px;
+    }
+
+    .media-grid-section__content > .text-block:nth-child(2) :is(p, h1, h2, h3) {
+      font-size: 13px;
+      line-height: 16px;
+    }
+
+    .media-grid-section__content > .media-grid-block {
+      margin-block-start: 20px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Media grid section",
+  "class": "section-wrapper",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+{
+  "type": "select",
+  "id": "section_width_mobile",
+  "label": "Mobile width",
+  "options": [
+    {
+      "value": "page-width",
+      "label": "t:options.page"
+    },
+    {
+      "value": "full-width",
+      "label": "t:options.full"
+    }
+  ],
+  "default": "page-width"
+},
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Media grid section",
+      "category": "Media",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "media-grid"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

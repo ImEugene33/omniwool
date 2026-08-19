@@ -1,0 +1,594 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "section_JptJtj": {
+      "type": "section",
+      "blocks": {
+        "group_K8Xb7H": {
+          "type": "group",
+          "name": "t:names.group",
+          "settings": {
+            "content_direction": "column",
+            "vertical_on_mobile": true,
+            "horizontal_alignment": "flex-start",
+            "vertical_alignment": "center",
+            "align_baseline": false,
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100,
+            "height": "fit",
+            "custom_height": 100,
+            "inherit_color_scheme": false,
+            "color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+            "background_media": "none",
+            "video_position": "cover",
+            "background_image_position": "cover",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 12,
+            "toggle_overlay": false,
+            "overlay_color": "#00000026",
+            "overlay_style": "solid",
+            "gradient_direction": "to top",
+            "link": "",
+            "open_in_new_tab": false,
+            "placeholder": "",
+            "padding-block-start": 20,
+            "padding-block-end": 20,
+            "padding-inline-start": 20,
+            "padding-inline-end": 30
+          },
+          "blocks": {
+            "breadcrumbs_CCkNMA": {
+              "type": "breadcrumbs",
+              "name": "Breadcrumbs",
+              "settings": {
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "collection_title_ydtPtj": {
+              "type": "collection-title",
+              "name": "t:names.collection_title",
+              "settings": {
+                "title_override": "Marketing & Brand Manager",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h1",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "breadcrumbs_CCkNMA",
+            "collection_title_ydtPtj"
+          ]
+        }
+      },
+      "block_order": [
+        "group_K8Xb7H"
+      ],
+      "name": "Collection heading",
+      "settings": {
+        "content_direction": "column",
+        "custom_style": true,
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "faq_layout": "none",
+        "faq_row_gap": 0,
+        "faq_column_gap": 56,
+        "faq_side_width": 40,
+        "faq_image_height": 420,
+        "faq_image_fit": "cover",
+        "faq_image_position": "center",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 30,
+        "padding-block-end": 30
+      }
+    },
+    "section_4fefcG": {
+      "type": "section",
+      "blocks": {
+        "text_UcyFke": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>ButlerWood – Seguin, TX (On-site)<br/>Full-Time | Salary | 55–60 hrs/week | Includes Benefits (401k + Medical)</strong></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "weight": "",
+            "weight_active": "inherit",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "text_color": "#000000",
+            "active_color": "#d23d00",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 24,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {}
+        },
+        "text_pzT6zF": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>At ButlerWood, we fuel experiences. From backyard barbecues to world-class restaurants, our premium cooking wood products power some of the best meals in America. We’re a fast-growing Texas-based company serving over 300 restaurants and thousands of BBQ enthusiasts nationwide—and we’re looking for a skilled Marketing & Brand Manager to help take our brand to the next level.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-accent--family)",
+            "font_size": "",
+            "weight": "",
+            "weight_active": "inherit",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "text_color": "#000000",
+            "active_color": "#d23d00",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0,
+            "padding-block-start-mobile": 0,
+            "padding-block-end-mobile": 0,
+            "padding-inline-start-mobile": 0,
+            "padding-inline-end-mobile": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_UcyFke",
+        "text_pzT6zF"
+      ],
+      "name": "t:names.rich_text_section",
+      "settings": {
+        "content_direction": "column",
+        "custom_style": true,
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "faq_layout": "default",
+        "faq_row_gap": 0,
+        "faq_column_gap": 0,
+        "faq_side_width": 25,
+        "faq_image_height": 420,
+        "faq_image_fit": "cover",
+        "faq_image_position": "center",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    },
+    "section_XJDggL": {
+      "type": "section",
+      "blocks": {
+        "accordion_qgxPch": {
+          "type": "accordion",
+          "name": "t:names.accordion",
+          "settings": {
+            "icon": "plus",
+            "container_size": "normal",
+            "show_borders": false,
+            "use_product_faq_metafield": true,
+            "row_color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+            "open_row_color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+            "row_border_radius": 4,
+            "row_gap": 20,
+            "type_preset": "h5",
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "accordion_row_nDzXUB": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Position Overview",
+                "content": "",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_eKVAkB": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>We’re seeking a hands-on Marketing & Brand Manager to lead all digital marketing and brand growth efforts. This role requires a self-starter who can strategize, create, and execute across multiple platforms to drive measurable results.</p><p>This is a salary position requiring a strong work ethic and ability to manage multiple campaigns simultaneously, both in and out of the office.</p>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "weight": "",
+                    "weight_active": "inherit",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "text_color": "#000000",
+                    "active_color": "#d23d00",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "padding-block-start-mobile": 0,
+                    "padding-block-end-mobile": 0,
+                    "padding-inline-start-mobile": 0,
+                    "padding-inline-end-mobile": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_eKVAkB"
+              ]
+            },
+            "accordion_row_NgDc6r": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Key Responsibilities",
+                "content": "",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_cyczxA": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li>Oversee all digital marketing channels, including Google Ads, Meta Ads, SEO, and email/SMS marketing</li><li>Manage Google Analytics, performance tracking, and data-driven campaign optimization</li><li>Create, edit, and publish digital content across web and social platforms</li><li>Maintain and grow social media presence across Facebook, Instagram, and other relevant channels</li><li>Foster audience engagement and relationships across online communities</li><li>Collaborate with leadership to develop brand identity, messaging, and creative strategy</li><li>Track KPIs, report results, and continuously improve ROI across all campaigns</li></ul>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "weight": "",
+                    "weight_active": "inherit",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "text_color": "#000000",
+                    "active_color": "#d23d00",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "padding-block-start-mobile": 0,
+                    "padding-block-end-mobile": 0,
+                    "padding-inline-start-mobile": 0,
+                    "padding-inline-end-mobile": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_cyczxA"
+              ]
+            },
+            "accordion_row_ybLBia": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Qualifications",
+                "content": "",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_GpTUjQ": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li>Proven experience managing full-scope digital marketing for one or multiple brands</li><li>Proficiency with Google Ads, Google Analytics, Meta Business Suite, and Shopify</li><li>Strong content creation and editing skills (photo, video, and copy)</li><li>Experience managing social media engagement and brand communities</li><li>Ability to analyze campaign performance and adjust strategies in real time</li><li>Excellent communication, organization, and leadership skills</li></ul>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "weight": "",
+                    "weight_active": "inherit",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "text_color": "#000000",
+                    "active_color": "#d23d00",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "padding-block-start-mobile": 0,
+                    "padding-block-end-mobile": 0,
+                    "padding-inline-start-mobile": 0,
+                    "padding-inline-end-mobile": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_GpTUjQ"
+              ]
+            },
+            "accordion_row_U3bjWN": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Work Schedule",
+                "content": "",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_XzALJL": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li>Monday–Friday, 8:00 AM – 4:00 PM (on-site, Seguin, TX)</li><li>Monday–Friday, 8:00 AM – 4:00 PM (on-site, Seguin, TX)Additional hours outside standard schedule as needed (approx. 55–60 hrs/week)</li></ul>",
+                    "width": "100%",
+                    "max_width": "none",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "weight": "",
+                    "weight_active": "inherit",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "text_color": "#000000",
+                    "active_color": "#d23d00",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "padding-block-start-mobile": 0,
+                    "padding-block-end-mobile": 0,
+                    "padding-inline-start-mobile": 0,
+                    "padding-inline-end-mobile": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_XzALJL"
+              ]
+            },
+            "accordion_row_ANcr8L": {
+              "type": "_accordion-row",
+              "name": "t:names.accordion_row",
+              "settings": {
+                "heading": "Compensation & Benefits",
+                "content": "",
+                "open_by_default": true,
+                "icon": "none",
+                "width": 20
+              },
+              "blocks": {
+                "text_atwHJA": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<ul><li>Full-time salary position (commensurate with experience)</li><li>401(k) plan with employer contribution</li><li>Medical benefits package</li><li>Opportunity for long-term growth within a rapidly expanding company</li></ul>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "weight": "",
+                    "weight_active": "inherit",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "text_color": "#000000",
+                    "active_color": "#d23d00",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0,
+                    "padding-block-start-mobile": 0,
+                    "padding-block-end-mobile": 0,
+                    "padding-inline-start-mobile": 0,
+                    "padding-inline-end-mobile": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_atwHJA"
+              ]
+            }
+          },
+          "block_order": [
+            "accordion_row_nDzXUB",
+            "accordion_row_NgDc6r",
+            "accordion_row_ybLBia",
+            "accordion_row_U3bjWN",
+            "accordion_row_ANcr8L"
+          ]
+        }
+      },
+      "block_order": [
+        "accordion_qgxPch"
+      ],
+      "name": "t:names.faq_section",
+      "settings": {
+        "content_direction": "column",
+        "custom_style": true,
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "faq_layout": "default",
+        "faq_row_gap": 0,
+        "faq_column_gap": 56,
+        "faq_side_width": 40,
+        "faq_image_height": 420,
+        "faq_image_fit": "cover",
+        "faq_image_position": "center",
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 48,
+        "padding-block-end": 48
+      }
+    }
+  },
+  "order": [
+    "main",
+    "section_JptJtj",
+    "section_4fefcG",
+    "section_XJDggL"
+  ]
+}

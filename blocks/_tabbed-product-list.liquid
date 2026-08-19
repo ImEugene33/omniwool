@@ -1,0 +1,255 @@
+{% liquid
+  assign collections = block.settings.collections
+  assign max_items = section.settings.max_products
+  assign first_collection = collections.first
+%}
+
+{% if collections != blank %}
+  <tabbed-product-slider-component
+    class="tabbed-product-slider__list-block"
+    mobile-tabs-layout="{{ block.settings.mobile_tabs_layout }}"
+    {{ block.shopify_attributes }}
+  >
+    <div class="tabbed-product-slider__navigation">
+      <div
+        class="tabbed-product-slider__tablist"
+        role="tablist"
+        aria-label="Product collections"
+      >
+        {% for collection in collections %}
+          <button
+            class="tabbed-product-slider__tab button button-secondary"
+            type="button"
+            role="tab"
+            ref="tabs[]"
+            id="Tab-{{ block.id }}-{{ forloop.index0 }}"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="Panel-{{ block.id }}-{{ forloop.index0 }}"
+            tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+            data-collection-url="{{ collection.url }}"
+            data-collection-title="{{ collection.title | escape }}"
+          >
+            {{ collection.title }}
+          </button>
+        {% endfor %}
+      </div>
+
+      {% if block.settings.shop_all_label != blank %}
+        <a
+          class="tabbed-product-slider__shop-all link"
+          ref="shopAll"
+          href="{{ first_collection.url }}"
+          data-label="{{ block.settings.shop_all_label | escape }}"
+          aria-label="{{ block.settings.shop_all_label | escape }} — {{ first_collection.title | escape }}"
+        >
+          <span>{{ block.settings.shop_all_label }}</span>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20">
+            <path d="M10.273 4.866a.5.5 0 0 1 .715 0l4.67 4.777a.5.5 0 0 1 .001.699l-4.673 4.794a.5.5 0 0 1-.713.003l-.306-.308a.5.5 0 0 1 .002-.706l2.451-2.445a.5.5 0 0 0-.353-.854H4.5a.5.5 0 0 1-.5-.5v-.652a.5.5 0 0 1 .5-.5h7.564a.5.5 0 0 0 .352-.855l-2.449-2.43a.5.5 0 0 1-.005-.705z"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="tabbed-product-slider__panels">
+      {% for collection in collections %}
+        {% liquid
+          assign collection_index = forloop.index0
+          assign slide_count = collection.products_count
+          if slide_count > max_items
+            assign slide_count = max_items
+          elsif slide_count == 0 and request.design_mode
+            assign slide_count = max_items
+          endif
+
+          assign carousel_ref = 'tabbedProductList-' | append: block.id | append: '-' | append: collection_index
+          assign test_id = 'tabbed-product-list-' | append: block.id | append: '-' | append: collection_index
+        %}
+
+        <div
+          class="tabbed-product-slider__panel"
+          role="tabpanel"
+          ref="panels[]"
+          id="Panel-{{ block.id }}-{{ collection_index }}"
+          aria-labelledby="Tab-{{ block.id }}-{{ collection_index }}"
+          tabindex="0"
+          {% unless forloop.first %}
+            hidden inert
+          {% endunless %}
+        >
+          {% capture list_items %}
+            {% if collection.products_count > 0 and shop.products_count != 0 %}
+              {% for product in collection.products limit: max_items %}
+                <div class="resource-list__item">
+                  {% # theme-check-disable UniqueStaticBlockId %}
+                    {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: product %}
+                  {% # theme-check-enable UniqueStaticBlockId %}
+                </div>
+
+                {% unless forloop.last %}
+                  <!--@list/split-->
+                {% endunless %}
+              {% endfor %}
+            {% elsif request.design_mode %}
+              {% for i in (1..max_items) %}
+                <div class="resource-list__item">
+                  {% # theme-check-disable UniqueStaticBlockId %}
+                    {% content_for 'block', type: '_product-card', id: 'static-product-card', closest.product: null %}
+                  {% # theme-check-enable UniqueStaticBlockId %}
+                </div>
+
+                {% unless forloop.last %}
+                  <!--@list/split-->
+                {% endunless %}
+              {% endfor %}
+            {% endif %}
+          {% endcapture %}
+
+          {% liquid
+            assign list_items_output = list_items | strip
+            assign list_items_array = list_items_output | split: '<!--@list/split-->'
+          %}
+
+          {% if list_items_output != blank %}
+            {% render 'resource-list',
+              list_items: list_items_output,
+              list_items_array: list_items_array,
+              settings: section.settings,
+              carousel_ref: carousel_ref,
+              slide_count: slide_count,
+              content_type: 'products',
+              test_id: test_id
+            %}
+          {% else %}
+            <p class="tabbed-product-slider__empty">{{ 'content.no_products_found' | t }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </tabbed-product-slider-component>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Tabbed product list",
+  "tag": null,
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collections",
+      "label": "Collections",
+      "limit": 4
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Shop all label",
+      "default": "Shop all"
+    },
+    {
+      "type": "select",
+      "id": "mobile_tabs_layout",
+      "label": "Mobile tabs layout",
+      "options": [
+        {
+          "value": "scroll",
+          "label": "Horizontal scroll"
+        },
+        {
+          "value": "wrap",
+          "label": "Wrap"
+        }
+      ],
+      "default": "scroll"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabbed product list",
+      "blocks": {
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 4,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product-card-gallery": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "portrait",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "product-title": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            },
+            "price": {
+              "type": "price",
+              "name": "t:names.product_price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
+            }
+          },
+          "block_order": ["product-card-gallery", "product-title", "price"]
+        }
+      }
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,373 @@
+{% liquid
+  assign block_settings = block.settings
+  assign eyebrow = block_settings.eyebrow | strip
+  assign heading = block_settings.heading | strip
+  assign text = block_settings.text | strip_html | strip
+  assign button_label = block_settings.button_label | strip
+%}
+
+<div
+  class="
+    faq-content
+    faq-content--{{ block.id }}
+    faq-content--align-{{ block_settings.alignment }}
+    spacing-style
+  "
+  style="
+    --faq-content-list-gap: {{ block_settings.list_gap }}px;
+    --faq-content-max-width: {{ block_settings.max_width }}px;
+    --faq-content-padding-block-start-mobile: {{ block_settings.padding-block-start-mobile | default: block_settings.padding-block-start | default: 0 }}px;
+    --faq-content-padding-block-end-mobile: {{ block_settings.padding-block-end-mobile | default: block_settings.padding-block-end | default: 0 }}px;
+    --faq-content-padding-inline-start-mobile: {{ block_settings.padding-inline-start-mobile | default: block_settings.padding-inline-start | default: 0 }}px;
+    --faq-content-padding-inline-end-mobile: {{ block_settings.padding-inline-end-mobile | default: block_settings.padding-inline-end | default: 0 }}px;
+    {% render 'spacing-style', settings: block_settings %}
+  "
+  {{ block.shopify_attributes }}
+>
+  {% if eyebrow != blank %}
+    <p class="faq-content__eyebrow">{{ block_settings.eyebrow }}</p>
+  {% endif %}
+
+  {% if heading != blank %}
+    <h2 class="faq-content__heading">{{ block_settings.heading }}</h2>
+  {% endif %}
+
+  {% if text != blank %}
+    <div class="faq-content__text rte">
+      {{ block_settings.text }}
+    </div>
+  {% endif %}
+
+  <div class="faq-content__items">
+    {% content_for 'blocks' %}
+  </div>
+
+  {% if button_label != blank %}
+    <a
+      class="faq-content__button {{ block_settings.button_style }}"
+      {% if block_settings.button_link == blank %}
+        role="link"
+        aria-disabled="true"
+      {% else %}
+        href="{{ block_settings.button_link }}"
+      {% endif %}
+      {% if block_settings.open_in_new_tab %}
+        target="_blank"
+        rel="noopener noreferrer"
+      {% endif %}
+    >
+      {{ block_settings.button_label }}
+    </a>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .faq-content {
+    width: 100%;
+    max-width: var(--faq-content-max-width);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-content--align-left {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .faq-content--align-center {
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .faq-content--align-right {
+    align-items: flex-end;
+    text-align: right;
+    margin-inline-start: auto;
+  }
+
+  .faq-content__eyebrow,
+  .faq-content__heading,
+  .faq-content__text,
+  .faq-content__text > * {
+    margin: 0;
+  }
+.faq-content__text{
+  padding-bottom:20px;
+}
+
+  .faq-content__eyebrow {
+    color: #2C1F15;
+    font-family: "Termina",sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+    padding-bottom:4px;
+  }
+
+  .faq-content__heading {
+    color:  #2C1F15;
+    font-family: "Termina",sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding-bottom:12px;
+  }
+
+  .faq-content__text {
+    font-size: var(--font-size--body-md);
+    line-height: var(--line-height--body-normal);
+  }
+
+  .faq-content__items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--faq-content-list-gap);
+    margin-bottom:51px;
+  }
+
+  .faq-content__button {
+    margin-block-start: var(--padding-xs);
+  }
+
+  @media screen and (max-width: 749px) {
+    .faq-content {
+      padding-block-start: var(--faq-content-padding-block-start-mobile);
+      padding-block-end: var(--faq-content-padding-block-end-mobile);
+      padding-inline-start: var(--faq-content-padding-inline-start-mobile);
+      padding-inline-end: var(--faq-content-padding-inline-end-mobile);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "FAQ content",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_faq-content-item"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut rutrum ligula.</p>"
+    },
+    {
+      "type": "header",
+      "content": "List"
+    },
+    {
+      "type": "range",
+      "id": "list_gap",
+      "label": "List gap",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Questions?"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_in_new_tab",
+      "label": "t:settings.open_new_tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Button style",
+      "options": [
+        {
+          "value": "button",
+          "label": "Primary"
+        },
+        {
+          "value": "button-secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "button-third",
+          "label": "Third button"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "button-third"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "t:settings.alignment",
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 280,
+      "max": 700,
+      "step": 10,
+      "unit": "px",
+      "default": 440
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start-mobile",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end-mobile",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start-mobile",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end-mobile",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ content",
+      "category": "t:categories.text",
+      "blocks": {
+        "item_1": {
+          "type": "_faq-content-item",
+          "settings": {
+            "text": "Text"
+          }
+        },
+        "item_2": {
+          "type": "_faq-content-item",
+          "settings": {
+            "text": "Text"
+          }
+        },
+        "item_3": {
+          "type": "_faq-content-item",
+          "settings": {
+            "text": "Text"
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3"]
+    }
+  ]
+}
+{% endschema %}

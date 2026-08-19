@@ -1,0 +1,938 @@
+{{ 'content-showcase.css' | asset_url | stylesheet_tag: preload: true }}
+
+{% liquid
+  capture showcase_style
+    render 'spacing-style', settings: section.settings
+    render 'gap-style', value: section.settings.gap
+    echo '--content-showcase-columns: ' | append: section.settings.columns | append: ';'
+    echo '--content-showcase-tablet-columns: ' | append: section.settings.tablet_columns | append: ';'
+    echo '--content-showcase-mobile-columns: ' | append: section.settings.mobile_columns | append: ';'
+    echo '--content-showcase-column-gap: ' | append: section.settings.columns_gap | append: 'px;'
+    echo '--content-showcase-tablet-column-gap: ' | append: section.settings.columns_gap_tablet | append: 'px;'
+    echo '--content-showcase-mobile-column-gap: ' | append: section.settings.columns_gap_mobile | append: 'px;'
+    echo '--content-showcase-row-gap: ' | append: section.settings.rows_gap | append: 'px;'
+    echo '--content-showcase-tablet-row-gap: ' | append: section.settings.rows_gap_tablet | append: 'px;'
+    echo '--content-showcase-mobile-row-gap: ' | append: section.settings.rows_gap_mobile | append: 'px;'
+    echo '--content-showcase-mobile-card-size: ' | append: section.settings.mobile_card_size | append: ';'
+  endcapture
+%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<div
+  class="
+    section
+    content-showcase
+    content-showcase--{{ section.settings.layout_type }}
+    section--{{ section.settings.section_width }} section--mobile-{{ section.settings.section_width_mobile | default: section.settings.section_width }}
+    color-{{ section.settings.color_scheme }}
+    spacing-style
+    gap-style
+  "
+  style="{{ showcase_style }}"
+  data-testid="content-showcase"
+>
+  <div class="custom-section-background">
+    {% render 'background-media',
+      background_media: section.settings.background_media,
+      background_video: section.settings.video,
+      background_video_position: section.settings.video_position,
+      background_image: section.settings.background_image,
+      background_image_position: section.settings.background_image_position
+    %}
+  </div>
+
+  <div
+    class="border-style custom-section-content"
+    style="{% render 'border-override', settings: section.settings %}"
+  >
+    {% if section.settings.toggle_overlay %}
+      {% render 'overlay', settings: section.settings, layer: '0' %}
+    {% endif %}
+
+    {% content_for 'blocks' %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .custom-section-background {
+    grid-column: 1 / -1;
+  }
+
+  .custom-section-content {
+    z-index: var(--layer-flat);
+  }
+
+  .content-showcase > .custom-section-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gap);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Content showcase",
+  "class": "ui-test-content-showcase",
+  "blocks": [
+    {
+      "type": "group-text"
+    },
+    {
+      "type": "_cards"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_type",
+      "label": "Layout type",
+      "options": [
+        {
+          "value": "carousel",
+          "label": "Carousel"
+        },
+        {
+          "value": "grid",
+          "label": "Grid"
+        }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "visible_if": "{{ section.settings.layout_type == 'carousel' or section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "select",
+      "id": "tablet_columns",
+      "label": "Tablet columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "2",
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "select",
+      "id": "mobile_columns",
+      "label": "Mobile columns",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_size",
+      "label": "Mobile card size",
+      "options": [
+        {
+          "value": "80cqw",
+          "label": "1"
+        },
+        {
+          "value": "44cqw",
+          "label": "2"
+        }
+      ],
+      "default": "80cqw",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "card_height",
+      "label": "Card height",
+      "options": [
+        {
+          "value": "top",
+          "label": "Fit content"
+        },
+        {
+          "value": "fill",
+          "label": "Fill height"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap",
+      "label": "Horizontal gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "columns_gap_tablet",
+      "label": "Horizontal gap tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "columns_gap_mobile",
+      "label": "Horizontal gap mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "rows_gap",
+      "label": "Vertical gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "rows_gap_tablet",
+      "label": "Vertical gap tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "range",
+      "id": "rows_gap_mobile",
+      "label": "Vertical gap mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12,
+      "visible_if": "{{ section.settings.layout_type == 'grid' }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel navigation",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_style",
+      "label": "Icon",
+      "options": [
+        {
+          "value": "arrow",
+          "label": "Arrows"
+        },
+        {
+          "value": "chevron",
+          "label": "Chevrons"
+        },
+        {
+          "value": "arrows_large",
+          "label": "Large arrows"
+        },
+        {
+          "value": "chevron_large",
+          "label": "Large chevrons"
+        },
+        {
+          "value": "none",
+          "label": "None"
+        }
+      ],
+      "default": "arrow",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "select",
+      "id": "icons_shape",
+      "label": "Icon background",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "none",
+      "visible_if": "{{ section.settings.layout_type == 'carousel' and section.settings.icons_style != 'none' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scrollbar",
+      "label": "Scroll bar",
+      "default": true,
+      "visible_if": "{{ section.settings.layout_type == 'carousel' }}"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page"
+        },
+        {
+          "value": "full-width",
+          "label": "Full"
+        }
+      ],
+      "default": "page-width"
+    },
+{
+  "type": "select",
+  "id": "section_width_mobile",
+  "label": "Mobile width",
+  "options": [
+    {
+      "value": "page-width",
+      "label": "Page"
+    },
+    {
+      "value": "full-width",
+      "label": "Full"
+    }
+  ],
+  "default": "page-width"
+},
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "background_media",
+      "label": "t:settings.background_media",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "image",
+          "label": "t:options.image"
+        },
+        {
+          "value": "video",
+          "label": "t:options.video"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "t:settings.video",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "select",
+      "id": "video_position",
+      "label": "t:settings.video_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "contain",
+          "label": "t:options.contain"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:settings.image",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "background_image_position",
+      "label": "t:settings.image_position",
+      "options": [
+        {
+          "value": "cover",
+          "label": "t:options.cover"
+        },
+        {
+          "value": "fit",
+          "label": "t:options.fit"
+        }
+      ],
+      "default": "cover",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
+      "id": "border",
+      "label": "t:settings.borders",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:options.none"
+        },
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "min": 0,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "label": "t:settings.border_width",
+      "default": 1,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:settings.border_opacity",
+      "default": 100,
+      "visible_if": "{{ section.settings.border != 'none' }}"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "t:settings.border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "toggle_overlay",
+      "label": "t:settings.background_overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "t:settings.overlay_color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "overlay_style",
+      "label": "t:settings.overlay_style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "t:options.solid"
+        },
+        {
+          "value": "gradient",
+          "label": "t:options.gradient"
+        }
+      ],
+      "default": "solid",
+      "visible_if": "{{ section.settings.toggle_overlay }}"
+    },
+    {
+      "type": "select",
+      "id": "gradient_direction",
+      "label": "t:settings.gradient_direction",
+      "options": [
+        {
+          "value": "to top",
+          "label": "t:options.up"
+        },
+        {
+          "value": "to bottom",
+          "label": "t:options.down"
+        }
+      ],
+      "default": "to top",
+      "visible_if": "{{ section.settings.toggle_overlay and section.settings.overlay_style == 'gradient' }}"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content showcase",
+      "category": "t:categories.storytelling",
+      "settings": {
+        "layout_type": "grid",
+        "columns": 4,
+        "tablet_columns": "3",
+        "mobile_columns": "2",
+        "mobile_card_size": "80cqw",
+        "card_height": "fill",
+        "columns_gap": 66,
+        "columns_gap_tablet": 24,
+        "columns_gap_mobile": 12,
+        "rows_gap": 44,
+        "rows_gap_tablet": 24,
+        "rows_gap_mobile": 12,
+        "icons_style": "none",
+        "icons_shape": "none",
+        "show_scrollbar": true,
+        "section_width": "page-width",
+        "gap": 44,
+        "color_scheme": "scheme-0c2ea821-4e44-4805-9146-bbdd95689162",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      },
+      "blocks": {
+        "showcase_heading": {
+          "type": "group-text",
+          "name": "Heading",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "background_media": "none",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<h2>BENEFITS OF PRECISION DRONES FOR FARMS</h2>",
+                "width": "fit-content",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-heading--family)",
+                "font_size": "2.26rem",
+                "weight": "800",
+                "line_height": "tight",
+                "case": "uppercase",
+                "color": "var(--color-foreground)"
+              }
+            },
+            "description": {
+              "type": "text",
+              "name": "Text",
+              "settings": {
+                "text": "<p>Drones have revolutionized the way we monitor crops and their health. Thanks to land surveying drone technology, farmers can now spot issues like infestation or poor irrigation that were once difficult to detect from ground level. With the help of analysis tools like normalized differential vegetation indexing (NDVI), you can quickly zero in on the problem and adjust conditions to maximize crop yields. Drone precision is also a great way to monitor your crops in real time, ensuring their quality and yield remains consistent over time.</p>",
+                "width": "fit-content",
+                "alignment": "left",
+                "type_preset": "rte",
+                "color": "var(--color-foreground)"
+              }
+            }
+          },
+          "block_order": ["heading", "description"]
+        },
+        "showcase_cards": {
+          "type": "_cards",
+          "name": "Cards",
+          "settings": {
+            "border_radius": 0,
+            "card_border_position": "border-top"
+          },
+          "blocks": {
+            "card_1": {
+              "type": "_card",
+              "name": "Card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 0,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-4",
+                "background_media": "none",
+                "padding-block-start": 16,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "number": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>1.</p>",
+                    "type_preset": "custom",
+                    "font_size": "2rem",
+                    "weight": "700",
+                    "line_height": "tight",
+                    "letter_spacing": "tight",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 12
+                  }
+                },
+                "heading": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h3>Precision agriculture:</h3>",
+                    "type_preset": "custom",
+                    "font_size": "1.125rem",
+                    "weight": "500",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 7
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Use drone farm surveying to find and address crop disease, infestation, or poor irrigation.</p>",
+                    "type_preset": "custom",
+                    "font_size": "0.875rem",
+                    "color": "var(--color-foreground)"
+                  }
+                }
+              },
+              "block_order": ["number", "heading", "text"]
+            },
+            "card_2": {
+              "type": "_card",
+              "name": "Card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 0,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-4",
+                "background_media": "none",
+                "padding-block-start": 16,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "number": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>2.</p>",
+                    "type_preset": "custom",
+                    "font_size": "2rem",
+                    "weight": "700",
+                    "line_height": "tight",
+                    "letter_spacing": "tight",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 12
+                  }
+                },
+                "heading": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h3>Improve yield:</h3>",
+                    "type_preset": "custom",
+                    "font_size": "1.125rem",
+                    "weight": "500",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 7
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>With the help of aerial imagery we can identify where crops are growing poorly and take corrective action quickly.</p>",
+                    "type_preset": "custom",
+                    "font_size": "0.875rem",
+                    "color": "var(--color-foreground)"
+                  }
+                }
+              },
+              "block_order": ["number", "heading", "text"]
+            },
+            "card_3": {
+              "type": "_card",
+              "name": "Card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 0,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-4",
+                "background_media": "none",
+                "padding-block-start": 16,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "number": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>3.</p>",
+                    "type_preset": "custom",
+                    "font_size": "2rem",
+                    "weight": "700",
+                    "line_height": "tight",
+                    "letter_spacing": "tight",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 12
+                  }
+                },
+                "heading": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h3>More accurate spraying programs:</h3>",
+                    "type_preset": "custom",
+                    "font_size": "1.125rem",
+                    "weight": "500",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 7
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Our land surveying drone service helps growers determine when their spray program is too large for the area being sprayed; by using our remote control drones they can reduce the amount of herbicide used on each acre in a field.</p>",
+                    "type_preset": "custom",
+                    "font_size": "0.875rem",
+                    "color": "var(--color-foreground)"
+                  }
+                }
+              },
+              "block_order": ["number", "heading", "text"]
+            },
+            "card_4": {
+              "type": "_card",
+              "name": "Card",
+              "settings": {
+                "content_direction": "column",
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "flex-start",
+                "gap": 0,
+                "inherit_color_scheme": false,
+                "color_scheme": "scheme-4",
+                "background_media": "none",
+                "padding-block-start": 16,
+                "padding-block-end": 12,
+                "padding-inline-start": 12,
+                "padding-inline-end": 12
+              },
+              "blocks": {
+                "number": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>4.</p>",
+                    "type_preset": "custom",
+                    "font_size": "2rem",
+                    "weight": "700",
+                    "line_height": "tight",
+                    "letter_spacing": "tight",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 12
+                  }
+                },
+                "heading": {
+                  "type": "text",
+                  "name": "Heading",
+                  "settings": {
+                    "text": "<h3>Beautiful Imagery:</h3>",
+                    "type_preset": "custom",
+                    "font_size": "1.125rem",
+                    "weight": "500",
+                    "case": "uppercase",
+                    "color": "var(--color-foreground-heading)",
+                    "padding-block-end": 7
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Drone Services can provide you with beautiful, detailed images of your crops and farmlands.</p>",
+                    "type_preset": "custom",
+                    "font_size": "0.875rem",
+                    "color": "var(--color-foreground)"
+                  }
+                }
+              },
+              "block_order": ["number", "heading", "text"]
+            }
+          },
+          "block_order": ["card_1", "card_2", "card_3", "card_4"]
+        },
+        "showcase_footer": {
+          "type": "group-text",
+          "name": "Text group",
+          "settings": {
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 12,
+            "width": "fill",
+            "width_mobile": "fill",
+            "height": "fit",
+            "inherit_color_scheme": true,
+            "background_media": "none",
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "text": {
+              "type": "text",
+              "name": "t:names.text",
+              "settings": {
+                "text": "<p>For more information about ButlerWood, feel free to give us a call at any time. We'll be happy to answer your questions and give you a clear idea of what it is we can provide for you and your farm.</p>",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "rte",
+                "color": "var(--color-foreground)"
+              }
+            }
+          },
+          "block_order": ["text"]
+        }
+      },
+      "block_order": ["showcase_heading", "showcase_cards", "showcase_footer"]
+    }
+  ]
+}
+{% endschema %}

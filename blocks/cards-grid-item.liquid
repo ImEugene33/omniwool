@@ -1,0 +1,101 @@
+{% capture children %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% liquid
+  assign block_index = section.blocks | find_index: 'id', block.id
+  assign render_as_slide = section.settings.render_cards_as_slides | default: false
+%}
+
+{% capture card %}
+  <article
+    class="cards-grid__item{% if request.design_mode %} cards-grid__item--design-mode{% endif %}"
+    {{ block.shopify_attributes }}
+  >
+    {% if block.settings.link != blank %}
+      <a class="cards-grid__item-link" href="{{ block.settings.link }}" aria-label="Open card"></a>
+    {% endif %}
+
+    <div class="cards-grid__item-inner">
+      {{ children }}
+    </div>
+  </article>
+{% endcapture %}
+
+{% if render_as_slide %}
+  <slideshow-slide
+    ref="slides[]"
+    aria-hidden="{% if block_index == 0 %}false{% else %}true{% endif %}"
+    class="cards-grid-slider__slide"
+    style="--slideshow-timeline: --slide-{{ block_index }};"
+  >
+    {{ card }}
+  </slideshow-slide>
+{% else %}
+  {{ card }}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cards grid item",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "image"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "group-text"
+    }
+  ],
+  "settings": [
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cards grid item",
+      "category": "Custom",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "image_ratio": "landscape",
+            "width": "fill",
+            "height": "fit"
+          }
+        },
+        "title": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Card title</p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-heading--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "padding-block-start": 12,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          }
+        }
+      },
+      "block_order": ["image", "title"]
+    }
+  ]
+}
+{% endschema %}

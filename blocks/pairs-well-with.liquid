@@ -1,0 +1,165 @@
+{%- liquid
+  assign block_settings = block.settings
+  assign metafield_namespace = block_settings.metafield_namespace | default: 'custom'
+  assign metafield_key = block_settings.metafield_key | default: 'pairs_well_with'
+  assign pairs_source = closest.product.metafields[metafield_namespace][metafield_key].value
+
+  assign single_title = pairs_source.title.value | default: pairs_source.title
+  assign single_image = pairs_source.image.value | default: pairs_source.image
+  assign is_single_pair = false
+
+  if single_title != blank or single_image != blank
+    assign is_single_pair = true
+  endif
+-%}
+
+{{ 'pairs-well-with.css' | asset_url | stylesheet_tag }}
+
+{%- capture pairs_items -%}
+  {%- if is_single_pair -%}
+    <li class="pairs-well-with__item">
+      {%- if single_image != blank -%}
+        {{
+          single_image
+          | image_url: width: 40
+          | image_tag:
+            loading: 'lazy',
+            widths: '20, 40',
+            sizes: '20px',
+            class: 'pairs-well-with__image',
+            alt: single_title
+        }}
+      {%- endif -%}
+      {%- if single_title != blank -%}
+        <span class="pairs-well-with__item-title">{{ single_title | escape }}</span>
+      {%- endif -%}
+    </li>
+  {%- else -%}
+    {%- for pair in pairs_source -%}
+      {%- liquid
+        assign pair_title = pair.title.value | default: pair.title
+        assign pair_image = pair.image.value | default: pair.image
+      -%}
+      {%- if pair_title != blank or pair_image != blank -%}
+        <li class="pairs-well-with__item">
+          {%- if pair_image != blank -%}
+            {{
+              pair_image
+              | image_url: width: 40
+              | image_tag:
+                loading: 'lazy',
+                widths: '20, 40',
+                sizes: '20px',
+                class: 'pairs-well-with__image',
+                alt: pair_title
+            }}
+          {%- endif -%}
+          {%- if pair_title != blank -%}
+            <span class="pairs-well-with__item-title">{{ pair_title | escape }}</span>
+          {%- endif -%}
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- assign pairs_items = pairs_items | strip -%}
+
+{%- if pairs_items != blank -%}
+  <div
+    class="pairs-well-with color-{{ block_settings.color_scheme }} spacing-style"
+    style="{% render 'spacing-style', settings: block_settings %}"
+    {{ block.shopify_attributes }}
+  >
+    {%- if block_settings.heading != blank -%}
+      <h3 class="pairs-well-with__heading">{{ block_settings.heading | escape }}</h3>
+    {%- endif -%}
+
+    <ul class="pairs-well-with__list list-unstyled">
+      {{ pairs_items }}
+    </ul>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Pairs well with",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pairs well with"
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key",
+      "default": "pairs_well_with"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "t:settings.left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "t:settings.right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pairs well with",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,175 @@
+{% liquid
+  assign block_index = section.blocks | find_index: 'id', block.id
+  assign slide_number = block_index | plus: 1
+  assign block_settings = block.settings
+%}
+
+{% capture children %}
+  <div class="split-media-slide">
+    <div class="split-media-slide__content">
+      <div class="split-media-slide__content-inner">
+        <div class="split-media-slide__blocks">
+          {% content_for 'blocks' %}
+        </div>
+      </div>
+    </div>
+
+    <div class="split-media-slide__media">
+      {% case block_settings.media_type %}
+        {% when 'image' %}
+          {% if block_settings.image != blank %}
+            {{
+              block_settings.image
+              | image_url: width: 2000
+              | image_tag:
+                widths: '352, 832, 1200, 1600, 2000',
+                sizes: '(min-width: 990px) 56vw, 100vw',
+                loading: 'lazy',
+                class: 'split-media-slide__media-item',
+                alt: block_settings.image.alt
+            }}
+          {% else %}
+            {{ 'hero-apparel-1' | placeholder_svg_tag: 'split-media-slide__media-item split-media-slide__placeholder' }}
+          {% endif %}
+
+        {% when 'uploaded_video' %}
+          {% render 'video',
+            video: block_settings.video,
+            video_autoplay: block_settings.video_autoplay,
+            video_loop: block_settings.video_loop,
+            video_class: 'split-media-slide__media-item split-media-slide__video',
+            video_preview_image: block_settings.video.preview_image,
+            disable_controls: block_settings.video_autoplay
+          %}
+
+        {% when 'external_video' %}
+          {% render 'video',
+            video_from_url: true,
+            video: block_settings.video_url.id,
+            video_type: block_settings.video_url.type,
+            video_autoplay: block_settings.video_autoplay,
+            video_loop: block_settings.video_loop,
+            video_class: 'split-media-slide__media-item split-media-slide__video',
+            video_preview_image: block_settings.cover_image,
+            video_alt: block_settings.video_alt,
+            disable_controls: block_settings.video_autoplay
+          %}
+      {% endcase %}
+    </div>
+  </div>
+{% endcapture %}
+
+{% render 'slideshow-slide',
+  index: block_index,
+  children: children,
+  attributes: block.shopify_attributes,
+  slide_id: block.id
+%}
+
+{% schema %}
+{
+  "name": "Slide",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "group-text"
+    },
+    {
+      "type": "_heading"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "select",
+      "id": "media_type",
+      "label": "Media type",
+      "options": [
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "uploaded_video",
+          "label": "Shopify video"
+        },
+        {
+          "value": "external_video",
+          "label": "YouTube or Vimeo"
+        }
+      ],
+      "default": "image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "visible_if": "{{ block.settings.media_type == 'image' }}"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "visible_if": "{{ block.settings.media_type == 'uploaded_video' }}"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "Video URL",
+      "accept": ["youtube", "vimeo"],
+      "visible_if": "{{ block.settings.media_type == 'external_video' }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "Cover image",
+      "visible_if": "{{ block.settings.media_type == 'external_video' and block.settings.video_autoplay == false }}"
+    },
+    {
+      "type": "text",
+      "id": "video_alt",
+      "label": "Video alt text",
+      "visible_if": "{{ block.settings.media_type == 'external_video' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Video autoplay",
+      "default": true,
+      "visible_if": "{{ block.settings.media_type != 'image' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "video_loop",
+      "label": "Video loop",
+      "default": true,
+      "visible_if": "{{ block.settings.media_type != 'image' }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slide",
+      "blocks": {
+        "description": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Central Texas land-clearing yields the trees we cut.</p>",
+            "type_preset": "rte",
+            "width": "fill"
+          }
+        }
+      },
+      "block_order": ["description"]
+    }
+  ]
+}
+{% endschema %}

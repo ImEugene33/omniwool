@@ -1,0 +1,100 @@
+{% doc %}
+  Renders breadcrumbs for collection and product templates.
+{% enddoc %}
+
+{% liquid
+  assign current_title = ''
+  assign parent_url = ''
+  assign parent_label = ''
+
+  if template.name == 'collection'
+    assign current_title = collection.title
+    assign parent_url = routes.collections_url
+    assign parent_label = 'Collections'
+  elsif template.name == 'list-collections'
+    assign current_title = 'Collections'
+  elsif template.name == 'product'
+    assign current_title = product.title
+    assign parent_url = routes.collections_url
+    assign parent_label = 'Collections'
+
+    if collection
+      assign parent_url = collection.url
+      assign parent_label = collection.title
+    elsif product.collections.first
+      assign parent_url = product.collections.first.url
+      assign parent_label = product.collections.first.title
+    endif
+  elsif template.name == 'page'
+    assign current_title = page.title
+  elsif template.name == 'blog'
+    assign current_title = blog.title
+  elsif template.name == 'article'
+    assign current_title = article.title
+
+    if blog
+      assign parent_url = blog.url
+      assign parent_label = blog.title
+    endif
+  elsif template.name == 'search'
+    assign current_title = 'Search'
+  elsif template.name == 'cart'
+    assign current_title = 'Cart'
+  elsif template.name == '404'
+    assign current_title = '404'
+  endif
+%}
+
+{% if current_title != blank %}
+  <nav
+    class="breadcrumbs{% if template.name == 'product' %} breadcrumbs--product{% endif %}"
+    aria-label="Breadcrumb"
+  >
+    <a
+      class="breadcrumbs__home"
+      href="{{ routes.root_url }}"
+      aria-label="{{ 'accessibility.home_logo_alt' | t: store_name: shop.name }}"
+    >
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.333 8.75 10 3.333l6.667 5.417v7.083a.833.833 0 0 1-.834.834h-3.75v-5h-4.166v5h-3.75a.833.833 0 0 1-.834-.834V8.75Z"
+          fill="currentColor"
+        />
+      </svg>
+    </a>
+    <span
+      class="breadcrumbs__separator"
+      aria-hidden="true"
+    >
+      /
+    </span>
+    {% if parent_label != blank %}
+      <a
+        class="breadcrumbs__link"
+        href="{{ parent_url }}"
+      >
+        {{ parent_label }}
+      </a>
+      <span
+        class="breadcrumbs__separator"
+        aria-hidden="true"
+      >
+        /
+      </span>
+    {% endif %}
+    <span
+      class="breadcrumbs__current"
+      aria-current="page"
+    >
+      {{ current_title }}
+    </span>
+  </nav>
+{% endif %}

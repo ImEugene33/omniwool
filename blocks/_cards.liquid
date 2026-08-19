@@ -1,0 +1,137 @@
+{% liquid
+  assign slide_count = block.blocks.size
+  assign show_arrows = false
+
+  if section.settings.icons_style != 'none' and slide_count > 1
+    assign show_arrows = true
+  endif
+
+  if section.settings.section_width == 'page-width'
+    assign slideshow_gutters = 'start end'
+    assign gutter_style = '--gutter-slide-width: var(--util-page-margin-offset);'
+  else
+    assign slideshow_gutters = null
+    assign gutter_style = '--gutter-slide-width: 0px;'
+  endif
+
+  assign slide_position = section.settings.card_height
+  if section.settings.card_height == 'fill'
+    assign slide_position = 'stretch'
+  endif
+%}
+
+{% capture card_style %}
+  --border-radius: {{ block.settings.border_radius }}px;
+  {% case block.settings.card_border_position %}
+    {% when 'border-top' %}
+      --card-border-block-start: 8px solid var(--color-border);
+      --card-border-block-end: 0;
+    {% when 'border-bottom' %}
+      --card-border-block-start: 0;
+      --card-border-block-end: 8px solid var(--color-border);
+    {% else %}
+      --card-border-block-start: 0;
+      --card-border-block-end: 0;
+  {% endcase %}
+{% endcapture %}
+
+{% capture blocks_content %}
+  {% content_for 'blocks' %}
+{% endcapture %}
+
+{% if slide_count > 0 %}
+  {% if section.settings.layout_type == 'carousel' %}
+    {% capture slideshow_style %}
+      --carousel-columns: {{ section.settings.columns }};
+      --carousel-mobile-columns: {{ section.settings.mobile_columns }};
+      --carousel-gap-mobile: {{ section.settings.columns_gap_mobile }}px;
+      {{ card_style }}
+      {% render 'gap-style', value: section.settings.columns_gap, name: 'carousel-gap' %}
+    {% endcapture %}
+
+    <div
+      class="content-showcase__carousel-shell force-full-width"
+      style="{{ gutter_style }}"
+    >
+      {% render 'slideshow',
+        ref: 'contentShowcase',
+        class: 'content-showcase__carousel',
+        style: slideshow_style,
+        slides: blocks_content,
+        show_arrows: show_arrows,
+        icon_style: section.settings.icons_style,
+        icon_shape: section.settings.icons_shape,
+        auto_hide_controls: false,
+        infinite: false,
+        initial_slide: 0,
+        slide_count: slide_count,
+        slide_position: slide_position,
+        slideshow_gutters: slideshow_gutters,
+        show_scrollbar: section.settings.show_scrollbar,
+        attributes: block.shopify_attributes
+      %}
+    </div>
+  {% else %}
+    <div
+      class="content-showcase__items content-showcase__items--{{ section.settings.layout_type }}"
+      style="{{ card_style }}"
+      {{ block.shopify_attributes }}
+    >
+      {{ blocks_content }}
+    </div>
+  {% endif %}
+{% elsif request.design_mode %}
+  <div class="content-showcase__empty" {{ block.shopify_attributes }}>
+    Add cards in the theme editor.
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Cards",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "_card"
+    }
+  ], 
+  "settings": [
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "card_border_position",
+      "label": "Card border position",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "border-top",
+          "label": "Top"
+        },
+        {
+          "value": "border-bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+    "presets": [
+    {
+      "name": "Cards",
+      "category": "t:categories.layout"
+    }
+  ]
+}
+{% endschema %}

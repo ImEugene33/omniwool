@@ -1,0 +1,373 @@
+.media-grid-block {
+  width: var(--size-style-width);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.media-grid-block--layout-3 .media-grid-card:nth-child(n + 4),
+.media-grid-block--layout-4 .media-grid-card:nth-child(n + 5),
+.media-grid-block--layout-bento .media-grid-card:nth-child(n + 5),
+.media-grid-block--layout-collections .media-grid-card:nth-child(n + 6) {
+  display: none;
+}
+
+.media-grid__items {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, clamp(260px, 24vw, 360px));
+  column-gap: var(--media-grid-gap, 20px);
+  row-gap: 24px;
+  min-height: auto;
+  padding-inline: 20px;
+}
+
+.media-grid-block:is(.media-grid-block--layout-3, .media-grid-block--layout-4)
+  .media-grid__items:has(> .media-grid-card:nth-child(1):last-child),
+.media-grid-block:is(.media-grid-block--layout-3, .media-grid-block--layout-4)
+  .media-grid__items:has(> .media-grid-card:nth-child(2):last-child) {
+  grid-template-rows: clamp(260px, 24vw, 360px);
+}
+
+.media-grid-block:is(.media-grid-block--layout-3, .media-grid-block--layout-4)
+  .media-grid__items:has(> .media-grid-card:nth-child(1):last-child) {
+  grid-template-columns: 1fr;
+}
+
+.media-grid-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  color: #fffaf2;
+  background: #dedbd4;
+}
+
+.media-grid-card:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.media-grid-block--layout-4 .media-grid-card:nth-child(3) {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.media-grid-block--layout-bento .media-grid__items {
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  grid-template-rows: repeat(2, clamp(240px, 24vw, 350px));
+  row-gap: 24px;
+  min-height: auto;
+}
+
+.media-grid-block--layout-bento .media-grid-card {
+  min-height: 0;
+}
+
+.media-grid-block--layout-bento .media-grid-card:nth-child(1) {
+  grid-column: 1 / span 7;
+  grid-row: 1;
+}
+
+.media-grid-block--layout-bento .media-grid-card:nth-child(2) {
+  grid-column: 8 / -1;
+  grid-row: 1;
+}
+
+.media-grid-block--layout-bento .media-grid-card:nth-child(3) {
+  grid-column: 1 / span 13;
+  grid-row: 2;
+}
+
+.media-grid-block--layout-bento .media-grid-card:nth-child(4) {
+  grid-column: 14 / -1;
+  grid-row: 2;
+}
+
+.media-grid-block--layout-collections .media-grid__items {
+  grid-template-columns: repeat(3, minmax(0, 420px));
+  grid-template-rows: repeat(2, 500px);
+  justify-content: center;
+  gap: 40px;
+  min-height: auto;
+  padding-inline: 0;
+}
+
+.media-grid-block--layout-collections .media-grid-card:nth-child(3) {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.media-grid-block--layout-collections .media-grid-card {
+  min-height: 0;
+}
+
+.media-grid-text-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  min-height: 0;
+  padding: 80px 12px 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.media-grid-text-card__heading {
+  width: 100%;
+  max-width: 550px;
+}
+
+.media-grid-text-card__heading :is(p, h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: #fffaf2;
+  font-family: "Termina", "Montserrat", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+}
+
+.media-grid-text-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #fffaf2;
+  border-radius: 2px;
+  color: #fffaf2;
+  background: transparent;
+  font-family: "Rajdhani", "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.72px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.media-grid-text-card__button:hover {
+  color: #d23d00;
+  background: #fffaf2;
+}
+
+.media-grid-card__image,
+.media-grid-card__placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.media-grid-card__image {
+  object-fit: cover;
+}
+
+.media-grid-card__placeholder {
+  background: #dedbd4;
+}
+
+.media-grid-card__placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+.media-grid-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.65) 97.115%);
+  pointer-events: none;
+}
+
+.media-grid-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  padding: 80px 12px 20px;
+}
+
+.media-grid-card__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  width: 100%;
+  color: #fffaf2;
+}
+
+.media-grid-card__title {
+  width: 100%;
+  max-width: 550px;
+  margin: 0;
+  color: #fffaf2;
+  font-family: "Termina", "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+}
+
+.media-grid-card__text {
+  width: 100%;
+  max-width: 550px;
+  margin: 0;
+  color: #fffaf2;
+  font-family: "Instrument Sans", "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.media-grid-card__text :is(p, ul, ol) {
+  margin: 0;
+}
+
+.media-grid-card__link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-end;
+  color: #fffaf2;
+  font-family: "Rajdhani", "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.72px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.media-grid-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.media-grid-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 850px;
+  margin: 32px auto 0;
+  color: #2c1f15;
+}
+
+.media-grid-cta__text {
+  width: 547px;
+  max-width: 100%;
+  margin: 0;
+  color: #2c1f15;
+  font-family: "Instrument Sans", "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.media-grid-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 2px;
+  color: #fffaf2;
+  background: #d23d00;
+  font-family: "Rajdhani", "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.72px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.media-grid-cta__button:hover {
+  color: #fffaf2;
+  background: #2c1f15;
+}
+
+@media screen and (max-width: 989px) {
+  .media-grid__items {
+    min-height: auto;
+  }
+
+  .media-grid-block--layout-bento .media-grid__items {
+    grid-template-rows: repeat(2, clamp(220px, 32vw, 300px));
+  }
+
+  .media-grid-card {
+    min-height: 340px;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .media-grid__items {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    padding-inline: 0;
+  }
+
+  .media-grid-card,
+  .media-grid-text-card,
+  .media-grid-card:nth-child(3),
+  .media-grid-block--layout-bento .media-grid-card:nth-child(1),
+  .media-grid-block--layout-bento .media-grid-card:nth-child(2),
+  .media-grid-block--layout-bento .media-grid-card:nth-child(3),
+  .media-grid-block--layout-bento .media-grid-card:nth-child(4),
+  .media-grid-block--layout-collections .media-grid-card:nth-child(3) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .media-grid-block--layout-collections .media-grid__items {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 20px;
+  }
+
+  .media-grid-block--layout-bento .media-grid__items {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .media-grid-text-card {
+    min-height: 320px;
+  }
+
+  .media-grid-card {
+    align-items: stretch;
+    min-height: auto;
+  }
+
+  .media-grid-card__content {
+    align-items: start;
+    gap: 20px;
+    justify-content: flex-end;
+    padding: 24px 14px 24px;
+  }
+
+  .media-grid-block {
+    width: var(--size-style-width-mobile);
+    min-width: var(--size-style-width-mobile-min);
+  }
+}
