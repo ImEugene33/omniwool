@@ -853,7 +853,6 @@
         "faq_row_gap": 0,
         "faq_column_gap": 30,
         "faq_side_width": 50,
-        "faq_image": "shopify://shop_images/Work_Lifestyle.png",
         "faq_image_height": 420,
         "faq_image_fit": "cover",
         "faq_image_position": "center",
@@ -879,17 +878,6 @@
     },
     "7a9a93847e20bec26200": {
       "type": "apps",
-      "blocks": {
-        "3e6e7bcf-3924-4c31-8cb9-c8294210f485": {
-          "type": "shopify://apps/yotpo-product-reviews/blocks/reviews/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "3e6e7bcf-3924-4c31-8cb9-c8294210f485"
-      ],
       "custom_css": [
         "svg {display: none;}"
       ],

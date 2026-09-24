@@ -18,7 +18,7 @@
           "type": "logo",
           "name": "t:names.logo",
           "settings": {
-            "inverse": true,
+            "inverse": false,
             "font": "body",
             "text": "",
             "text_alignment": "left",
@@ -26,7 +26,7 @@
             "text_padding_bottom": 0,
             "unit": "pixel",
             "percent_width": 100,
-            "pixel_height": 48,
+            "pixel_height": 80,
             "custom_mobile_size": false,
             "unit_mobile": "percent",
             "percent_width_mobile": 100,
@@ -53,7 +53,7 @@
             "heading_preset": "h5",
             "link_preset": "paragraph",
             "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-end": 40,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -277,8 +277,9 @@
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
+        "section_width_mobile": "page-width",
         "gap": 40,
-        "color_scheme": "scheme-81c60200-6a4b-451d-9f52-f77c3c777199",
+        "color_scheme": "scheme-3",
         "padding-block-start": 30,
         "padding-block-end": 30
       }
@@ -286,18 +287,18 @@
     "footer_utilities_jLGE8U": {
       "type": "footer-utilities",
       "blocks": {
-        "footer_copyright_jweRK8": {
-          "type": "footer-copyright",
+        "footer_policy_list_VCdnpa": {
+          "type": "footer-policy-list",
           "settings": {
-            "show_powered_by": true,
             "font_size": "0.75rem",
             "case": "none"
           },
           "blocks": {}
         },
-        "footer_policy_list_VCdnpa": {
-          "type": "footer-policy-list",
+        "footer_copyright_jweRK8": {
+          "type": "footer-copyright",
           "settings": {
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           },
@@ -324,18 +325,19 @@
         }
       },
       "block_order": [
-        "footer_copyright_jweRK8",
         "footer_policy_list_VCdnpa",
+        "footer_copyright_jweRK8",
         "social_links_Ew63Kq"
       ],
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
+        "section_width_mobile": "page-width",
         "gap": 24,
         "divider_thickness": 0,
-        "color_scheme": "scheme-81c60200-6a4b-451d-9f52-f77c3c777199",
-        "padding-block-start": 20,
-        "padding-block-end": 48
+        "color_scheme": "scheme-77903440-a2ae-40ff-b43e-a2b37db41727",
+        "padding-block-start": 12,
+        "padding-block-end": 12
       }
     }
   },

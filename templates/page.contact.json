@@ -89,6 +89,7 @@
         "content_direction": "column",
         "gap": 32,
         "section_width": "page-width",
+        "section_width_mobile": "page-width",
         "color_scheme": "scheme-2",
         "padding-block-start": 40,
         "padding-block-end": 0
@@ -153,6 +154,7 @@
         "text_6WFQPz": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<h2>Bulk Order Request form</h2>",
             "width": "fit-content",
@@ -169,9 +171,9 @@
             "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
-            "background_color": "#00000000",
+            "background_color": "rgba(0,0,0,0)",
             "text_color": "#000000",
-            "active_color": "#D23D00",
+            "active_color": "#d23d00",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -187,6 +189,7 @@
         "group_jGCpYK": {
           "type": "group",
           "name": "t:names.group",
+          "disabled": true,
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -240,6 +243,7 @@
         "text_8WxG9i": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<h2>Job Application form</h2>",
             "width": "fit-content",
@@ -256,9 +260,9 @@
             "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
-            "background_color": "#00000000",
+            "background_color": "rgba(0,0,0,0)",
             "text_color": "#000000",
-            "active_color": "#D23D00",
+            "active_color": "#d23d00",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -274,6 +278,7 @@
         "group_GxHLzt": {
           "type": "group",
           "name": "t:names.group",
+          "disabled": true,
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -327,6 +332,7 @@
         "text_Et98FU": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<h2>Drone Services form</h2>",
             "width": "fit-content",
@@ -343,9 +349,9 @@
             "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
-            "background_color": "#00000000",
+            "background_color": "rgba(0,0,0,0)",
             "text_color": "#000000",
-            "active_color": "#D23D00",
+            "active_color": "#d23d00",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -361,6 +367,7 @@
         "group_9HyfQb": {
           "type": "group",
           "name": "t:names.group",
+          "disabled": true,
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -414,6 +421,7 @@
         "text_4LHUyB": {
           "type": "text",
           "name": "t:names.text",
+          "disabled": true,
           "settings": {
             "text": "<h2>Restaurant Form form</h2>",
             "width": "fit-content",
@@ -430,9 +438,9 @@
             "wrap": "pretty",
             "color": "var(--color-foreground)",
             "background": false,
-            "background_color": "#00000000",
+            "background_color": "rgba(0,0,0,0)",
             "text_color": "#000000",
-            "active_color": "#D23D00",
+            "active_color": "#d23d00",
             "corner_radius": 0,
             "padding-block-start": 0,
             "padding-block-end": 0,
@@ -448,6 +456,7 @@
         "group_j4tU4K": {
           "type": "group",
           "name": "t:names.group",
+          "disabled": true,
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
@@ -529,6 +538,7 @@
         "faq_image_fit": "cover",
         "faq_image_position": "center",
         "section_width": "page-width",
+        "section_width_mobile": "page-width",
         "section_height": "",
         "section_height_custom": 50,
         "color_scheme": "scheme-2",
