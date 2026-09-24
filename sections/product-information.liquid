@@ -325,13 +325,16 @@
     min-width: auto;
     min-height: 36px;
     flex: 0 0 auto;
-    border: 1px solid #000;
+    border: 1px solid var(--color-variant-border);
     border-radius: 8px;
-    background: transparent;
-    color: #000;
-    background:#fff;
+    background: var(--color-variant-background);
+    color: var(--color-variant-text);
     box-shadow: none;
+  }
 
+  .product-information .product-details .variant-option__button-label:has(:checked) {
+    color: var(--color-selected-variant-text);
+    border-color: var(--color-selected-variant-border);
   }
 
   .product-information .product-details .variant-option__button-label::before,
@@ -341,7 +344,7 @@
 
   .product-information .product-details .variant-option__button-label__pill {
     inset: 0;
-    background: #000;
+    background: var(--color-selected-variant-background);
     border-radius: 2px;
   }
 
